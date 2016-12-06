@@ -1,0 +1,269 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ALTER_ERR	def.h	/^	ALTER_ERR = -2,		\/\/ @数据记录修改错误$/;"	e	enum:__anon7
+BUF_CHAR	def.h	17;"	d
+BUF_NAME	def.h	16;"	d
+BUF_SHORT	def.h	19;"	d
+BUF_TEXT	def.h	18;"	d
+CC	Makefile	/^CC=gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS  := -w -Wshadow -Wconversion -std=gnu99 -g \\$/;"	m
+CONN_ERR	def.h	/^	CONN_ERR = -5,		\/\/ @连接错误$/;"	e	enum:__anon7
+C_DEFINES	Makefile	/^C_DEFINES = -DHAS_CLOCK_GETTIME -DHAS_PTHREADBARRIER \\$/;"	m
+DATA_INFO	def.h	/^	DATA_INFO = 2$/;"	e	enum:__anon17
+DB_ALTER	def.h	/^	DB_ALTER,$/;"	e	enum:__anon3
+DB_CSTACK	def.h	/^	DB_CSTACK = 1$/;"	e	enum:__anon4
+DB_DELETE	def.h	/^	DB_DELETE,$/;"	e	enum:__anon3
+DB_INSERT	def.h	/^	DB_INSERT = 1,$/;"	e	enum:__anon3
+DB_SEARCH	def.h	/^	DB_SEARCH$/;"	e	enum:__anon3
+DEFAULT	def.h	/^	DEFAULT = 0,$/;"	e	enum:__anon17
+DEL_ERR	def.h	/^	DEL_ERR = -3,		\/\/ @数据记录删除错误$/;"	e	enum:__anon7
+ERR	debug_log.h	/^	ERR$/;"	e	enum:__anon2
+ERR_JSON_STRUCT	def.h	/^	ERR_JSON_STRUCT = -100,		\/\/ @json结构不是协议规定结构；$/;"	e	enum:__anon6
+EXEC	Makefile	/^EXEC = lwan$/;"	m
+EXEC_OK	def.h	/^	EXEC_OK = 1			\/\/ @操作执行OK$/;"	e	enum:__anon7
+FALSE	def.h	/^	FALSE = -1,					\/\/ @参数错误；$/;"	e	enum:__anon6
+FIELD	def.h	31;"	d
+INFO	debug_log.h	/^	INFO = 1,$/;"	e	enum:__anon2
+INSERT_ERR	def.h	/^	INSERT_ERR = -4,	\/\/ @数据记录插入错误$/;"	e	enum:__anon7
+LDFLAGS	Makefile	/^LDFLAGS := -L..\/..\/lib\/$/;"	m
+LDLIBS	Makefile	/^LDLIBS  := -rdynamic -Wl,-whole-archive -llwan -llua \\$/;"	m
+LOG_ERROR	debug_log.h	11;"	d
+LOG_INFO	debug_log.h	9;"	d
+LOG_WARNING	debug_log.h	10;"	d
+MAX_DB_NUM	def.h	25;"	d
+MAX_FIELD	def.h	27;"	d
+MAX_TAB_NUM	def.h	26;"	d
+OBJ	Makefile	/^OBJ = 	$(SRCDIR)cjson.c \\$/;"	m
+PROTOCOL_VER	def.h	22;"	d
+PROT_INFO	def.h	/^	PROT_INFO = 1,$/;"	e	enum:__anon17
+REQ_TYPE_NUM	def.h	28;"	d
+SEARCH_ERR	def.h	/^	SEARCH_ERR = -1,	\/\/ @数据记录查询错误$/;"	e	enum:__anon7
+SHELL	Makefile	/^SHELL = \/bin\/sh $/;"	m
+SRCDIR	Makefile	/^SRCDIR = .\/$/;"	m
+TAB_APP	def.h	/^	TAB_APP,$/;"	e	enum:__anon5
+TAB_DEVICE	def.h	/^	TAB_DEVICE,$/;"	e	enum:__anon5
+TAB_DEV_STATUS	def.h	/^	TAB_DEV_STATUS,$/;"	e	enum:__anon5
+TAB_SERVER	def.h	/^	TAB_SERVER,$/;"	e	enum:__anon5
+TAB_SUB	def.h	/^	TAB_SUB$/;"	e	enum:__anon5
+TAB_USER	def.h	/^	TAB_USER,$/;"	e	enum:__anon5
+TAB_VENDOR	def.h	/^	TAB_VENDOR = 1,$/;"	e	enum:__anon5
+TRUE	def.h	/^	TRUE = 1					\/\/ @运行OK；$/;"	e	enum:__anon6
+VALUE	def.h	32;"	d
+VAL_FALSE	def.h	/^	VAL_FALSE = 0,$/;"	e	enum:__anon16
+VAL_NULL	def.h	/^	VAL_NULL = 2,$/;"	e	enum:__anon16
+VAL_NUM	def.h	/^	VAL_NUM = 3,$/;"	e	enum:__anon16
+VAL_STR	def.h	/^	VAL_STR = 4,$/;"	e	enum:__anon16
+VAL_TRUE	def.h	/^	VAL_TRUE = 1,$/;"	e	enum:__anon16
+WARNING	debug_log.h	/^	WARNING,$/;"	e	enum:__anon2
+_GNU_SOURCE	web_common.c	12;"	d	file:
+api_db_alter_h	api_db_alter.h	6;"	d
+api_db_del_h	api_db_del.h	6;"	d
+api_db_insert_h	api_db_insert.h	6;"	d
+api_db_search_h	api_db_search.h	6;"	d
+app_description	def.h	/^	uint8 app_description[BUF_TEXT];$/;"	m	struct:__anon11
+app_domain	def.h	/^	uint8 app_domain[BUF_CHAR];$/;"	m	struct:__anon11
+app_key	def.h	/^	uint8 app_key[BUF_CHAR];$/;"	m	struct:__anon11
+app_name	def.h	/^	uint8 app_name[BUF_CHAR];$/;"	m	struct:__anon11
+app_token	def.h	/^	uint8 app_token[BUF_CHAR];$/;"	m	struct:__anon11
+buffer	cjson.c	/^typedef struct {char *buffer; int length; int offset; } printbuffer;$/;"	m	struct:__anon1	file:
+cJSON	cjson.h	/^typedef struct cJSON {$/;"	s
+cJSON	cjson.h	/^} cJSON;$/;"	t	typeref:struct:cJSON
+cJSON_AddBoolToObject	cjson.h	139;"	d
+cJSON_AddFalseToObject	cjson.h	138;"	d
+cJSON_AddItemReferenceToArray	cjson.c	/^void	cJSON_AddItemReferenceToArray(cJSON *array, cJSON *item)						{cJSON_AddItemToArray(array,create_reference(item));}$/;"	f
+cJSON_AddItemReferenceToObject	cjson.c	/^void	cJSON_AddItemReferenceToObject(cJSON *object,const char *string,cJSON *item)	{cJSON_AddItemToObject(object,string,create_reference(item));}$/;"	f
+cJSON_AddItemToArray	cjson.c	/^void   cJSON_AddItemToArray(cJSON *array, cJSON *item)						{cJSON *c=array->child;if (!item) return; if (!c) {array->child=item;} else {while (c && c->next) c=c->next; suffix_object(c,item);}}$/;"	f
+cJSON_AddItemToObject	cjson.c	/^void   cJSON_AddItemToObject(cJSON *object,const char *string,cJSON *item)	{if (!item) return; if (item->string) cJSON_free(item->string);item->string=cJSON_strdup(string);cJSON_AddItemToArray(object,item);}$/;"	f
+cJSON_AddItemToObjectCS	cjson.c	/^void   cJSON_AddItemToObjectCS(cJSON *object,const char *string,cJSON *item)	{if (!item) return; if (!(item->type&cJSON_StringIsConst) && item->string) cJSON_free(item->string);item->string=(char*)string;item->type|=cJSON_StringIsConst;cJSON_AddItemToArray(object,item);}$/;"	f
+cJSON_AddNullToObject	cjson.h	136;"	d
+cJSON_AddNumberToObject	cjson.h	140;"	d
+cJSON_AddStringToObject	cjson.h	141;"	d
+cJSON_AddTrueToObject	cjson.h	137;"	d
+cJSON_Array	cjson.h	39;"	d
+cJSON_CreateArray	cjson.c	/^cJSON *cJSON_CreateArray(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_Array;return item;}$/;"	f
+cJSON_CreateBool	cjson.c	/^cJSON *cJSON_CreateBool(int b)					{cJSON *item=cJSON_New_Item();if(item)item->type=b?cJSON_True:cJSON_False;return item;}$/;"	f
+cJSON_CreateDoubleArray	cjson.c	/^cJSON *cJSON_CreateDoubleArray(const double *numbers,int count)	{int i;cJSON *n=0,*p=0,*a=cJSON_CreateArray();for(i=0;a && i<count;i++){n=cJSON_CreateNumber(numbers[i]);if(!i)a->child=n;else suffix_object(p,n);p=n;}return a;}$/;"	f
+cJSON_CreateFalse	cjson.c	/^cJSON *cJSON_CreateFalse(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_False;return item;}$/;"	f
+cJSON_CreateFloatArray	cjson.c	/^cJSON *cJSON_CreateFloatArray(const float *numbers,int count)	{int i;cJSON *n=0,*p=0,*a=cJSON_CreateArray();for(i=0;a && i<count;i++){n=cJSON_CreateNumber(numbers[i]);if(!i)a->child=n;else suffix_object(p,n);p=n;}return a;}$/;"	f
+cJSON_CreateIntArray	cjson.c	/^cJSON *cJSON_CreateIntArray(const int *numbers,int count)		{int i;cJSON *n=0,*p=0,*a=cJSON_CreateArray();for(i=0;a && i<count;i++){n=cJSON_CreateNumber(numbers[i]);if(!i)a->child=n;else suffix_object(p,n);p=n;}return a;}$/;"	f
+cJSON_CreateNull	cjson.c	/^cJSON *cJSON_CreateNull(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_NULL;return item;}$/;"	f
+cJSON_CreateNumber	cjson.c	/^cJSON *cJSON_CreateNumber(double num)			{cJSON *item=cJSON_New_Item();if(item){item->type=cJSON_Number;item->valuedouble=num;item->valueint=(int)num;}return item;}$/;"	f
+cJSON_CreateObject	cjson.c	/^cJSON *cJSON_CreateObject(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_Object;return item;}$/;"	f
+cJSON_CreateString	cjson.c	/^cJSON *cJSON_CreateString(const char *string)	{cJSON *item=cJSON_New_Item();if(item){item->type=cJSON_String;item->valuestring=cJSON_strdup(string);}return item;}$/;"	f
+cJSON_CreateStringArray	cjson.c	/^cJSON *cJSON_CreateStringArray(const char **strings,int count)	{int i;cJSON *n=0,*p=0,*a=cJSON_CreateArray();for(i=0;a && i<count;i++){n=cJSON_CreateString(strings[i]);if(!i)a->child=n;else suffix_object(p,n);p=n;}return a;}$/;"	f
+cJSON_CreateTrue	cjson.c	/^cJSON *cJSON_CreateTrue(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_True;return item;}$/;"	f
+cJSON_Delete	cjson.c	/^void cJSON_Delete(cJSON *c)$/;"	f
+cJSON_DeleteItemFromArray	cjson.c	/^void   cJSON_DeleteItemFromArray(cJSON *array,int which)			{cJSON_Delete(cJSON_DetachItemFromArray(array,which));}$/;"	f
+cJSON_DeleteItemFromObject	cjson.c	/^void   cJSON_DeleteItemFromObject(cJSON *object,const char *string) {cJSON_Delete(cJSON_DetachItemFromObject(object,string));}$/;"	f
+cJSON_DetachItemFromArray	cjson.c	/^cJSON *cJSON_DetachItemFromArray(cJSON *array,int which)			{cJSON *c=array->child;while (c && which>0) c=c->next,which--;if (!c) return 0;$/;"	f
+cJSON_DetachItemFromObject	cjson.c	/^cJSON *cJSON_DetachItemFromObject(cJSON *object,const char *string) {int i=0;cJSON *c=object->child;while (c && cJSON_strcasecmp(c->string,string)) i++,c=c->next;if (c) return cJSON_DetachItemFromArray(object,i);return 0;}$/;"	f
+cJSON_Duplicate	cjson.c	/^cJSON *cJSON_Duplicate(cJSON *item,int recurse)$/;"	f
+cJSON_False	cjson.h	34;"	d
+cJSON_GetArrayItem	cjson.c	/^cJSON *cJSON_GetArrayItem(cJSON *array,int item)				{cJSON *c=array->child;  while (c && item>0) item--,c=c->next; return c;}$/;"	f
+cJSON_GetArraySize	cjson.c	/^int    cJSON_GetArraySize(cJSON *array)							{cJSON *c=array->child;int i=0;while(c)i++,c=c->next;return i;}$/;"	f
+cJSON_GetErrorPtr	cjson.c	/^const char *cJSON_GetErrorPtr(void) {return ep;}$/;"	f
+cJSON_GetObjectItem	cjson.c	/^cJSON *cJSON_GetObjectItem(cJSON *object,const char *string)	{cJSON *c=object->child; while (c && cJSON_strcasecmp(c->string,string)) c=c->next; return c;}$/;"	f
+cJSON_Hooks	cjson.h	/^typedef struct cJSON_Hooks {$/;"	s
+cJSON_Hooks	cjson.h	/^} cJSON_Hooks;$/;"	t	typeref:struct:cJSON_Hooks
+cJSON_InitHooks	cjson.c	/^void cJSON_InitHooks(cJSON_Hooks* hooks)$/;"	f
+cJSON_InsertItemInArray	cjson.c	/^void   cJSON_InsertItemInArray(cJSON *array,int which,cJSON *newitem)		{cJSON *c=array->child;while (c && which>0) c=c->next,which--;if (!c) {cJSON_AddItemToArray(array,newitem);return;}$/;"	f
+cJSON_IsReference	cjson.h	42;"	d
+cJSON_Minify	cjson.c	/^void cJSON_Minify(char *json)$/;"	f
+cJSON_NULL	cjson.h	36;"	d
+cJSON_New_Item	cjson.c	/^static cJSON *cJSON_New_Item(void)$/;"	f	file:
+cJSON_Number	cjson.h	37;"	d
+cJSON_Object	cjson.h	40;"	d
+cJSON_Parse	cjson.c	/^cJSON *cJSON_Parse(const char *value) {return cJSON_ParseWithOpts(value,0,0);}$/;"	f
+cJSON_ParseWithOpts	cjson.c	/^cJSON *cJSON_ParseWithOpts(const char *value,const char **return_parse_end,int require_null_terminated)$/;"	f
+cJSON_Print	cjson.c	/^char *cJSON_Print(cJSON *item)				{return print_value(item,0,1,0);}$/;"	f
+cJSON_PrintBuffered	cjson.c	/^char *cJSON_PrintBuffered(cJSON *item,int prebuffer,int fmt)$/;"	f
+cJSON_PrintUnformatted	cjson.c	/^char *cJSON_PrintUnformatted(cJSON *item)	{return print_value(item,0,0,0);}$/;"	f
+cJSON_ReplaceItemInArray	cjson.c	/^void   cJSON_ReplaceItemInArray(cJSON *array,int which,cJSON *newitem)		{cJSON *c=array->child;while (c && which>0) c=c->next,which--;if (!c) return;$/;"	f
+cJSON_ReplaceItemInObject	cjson.c	/^void   cJSON_ReplaceItemInObject(cJSON *object,const char *string,cJSON *newitem){int i=0;cJSON *c=object->child;while(c && cJSON_strcasecmp(c->string,string))i++,c=c->next;if(c){newitem->string=cJSON_strdup(string);cJSON_ReplaceItemInArray(object,i,newitem);}}$/;"	f
+cJSON_SetIntValue	cjson.h	144;"	d
+cJSON_SetNumberValue	cjson.h	145;"	d
+cJSON_String	cjson.h	38;"	d
+cJSON_StringIsConst	cjson.h	43;"	d
+cJSON_True	cjson.h	35;"	d
+cJSON_free	cjson.c	/^static void (*cJSON_free)(void *ptr) = free;$/;"	v	file:
+cJSON_h	cjson.h	24;"	d
+cJSON_malloc	cjson.c	/^static void *(*cJSON_malloc)(size_t sz) = malloc;$/;"	v	file:
+cJSON_strcasecmp	cjson.c	/^static int cJSON_strcasecmp(const char *s1,const char *s2)$/;"	f	file:
+cJSON_strdup	cjson.c	/^static char* cJSON_strdup(const char* str)$/;"	f	file:
+child	cjson.h	/^	struct cJSON *child;		\/* An array or object item will have a child pointer pointing to a chain of the items in the array\/object. *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::cJSON
+common_api	web_common.c	/^lwan_http_status_t common_api(lwan_request_t *request,$/;"	f
+create_reference	cjson.c	/^static cJSON *create_reference(cJSON *item) {cJSON *ref=cJSON_New_Item();if (!ref) return 0;memcpy(ref,item,sizeof(cJSON));ref->string=0;ref->type|=cJSON_IsReference;ref->next=ref->prev=0;return ref;}$/;"	f	file:
+data	def.h	/^	json_data_t *data;					\/\/ @存储 json_data_t 链的链表首地址$/;"	m	struct:linklist
+data	def.h	/^	uint8 data[BUF_TEXT * 4];$/;"	m	struct:linklist2
+db_common	db_common.c	/^uint32 db_common(db_opt opt, linklist2_t *sql)$/;"	f
+db_common_h	db_common.h	6;"	d
+db_connect	db_common.c	/^uint32 db_connect(const int8 *host, const int8 *user, const int8 *passwd, const int8 *database)$/;"	f
+db_disconnect	db_common.c	/^uint32 db_disconnect()$/;"	f
+db_info_t	def.h	/^} db_info_t;$/;"	t	typeref:struct:__anon15
+db_insert	api_db_insert.c	/^int db_insert(char *buf_in, int len_in)$/;"	f
+db_name	def.h	/^	uint32 db_name;						\/\/ @数据库名称，参见结构 db_name_t$/;"	m	struct:__anon15
+db_name_t	def.h	/^} db_name_t;$/;"	t	typeref:enum:__anon4
+db_opt	def.h	/^} db_opt;$/;"	t	typeref:enum:__anon3
+db_stat	json_common.c	/^MYSQL* db_stat()$/;"	f
+db_status_t	def.h	/^} db_status_t;$/;"	t	typeref:enum:__anon7
+db_tab	def.h	/^static uint8 *db_tab[7] = {"vendor", "server", "device", "application", "dev_status", "user", "subscribe"};$/;"	v
+db_tab_t	def.h	/^} db_tab_t;$/;"	t	typeref:enum:__anon5
+debug_log_h	debug_log.h	7;"	d
+def_h	def.h	7;"	d
+dev_status	def.h	/^	bool dev_status;$/;"	m	struct:__anon12
+device_description	def.h	/^	uint8 device_description[BUF_TEXT];$/;"	m	struct:__anon10
+device_identifier	def.h	/^	uint8 device_identifier[BUF_CHAR];$/;"	m	struct:__anon10
+device_key	def.h	/^	uint8 device_key[BUF_CHAR];$/;"	m	struct:__anon10
+device_name	def.h	/^	uint8 device_name[BUF_CHAR];$/;"	m	struct:__anon10
+device_secret	def.h	/^	uint8 device_secret[BUF_CHAR];$/;"	m	struct:__anon10
+device_version	def.h	/^	uint8 device_version[BUF_SHORT];$/;"	m	struct:__anon10
+email_addr	def.h	/^	uint8 email_addr[BUF_CHAR];$/;"	m	struct:__anon13
+ensure	cjson.c	/^static char* ensure(printbuffer *p,int needed)$/;"	f	file:
+ep	cjson.c	/^static const char *ep;$/;"	v	file:
+field	def.h	/^	uint8 *field;						\/\/ @存储字段$/;"	m	struct:json_data
+field_app	def.h	/^static uint8 *field_app[9] = {"app_id", "app_name", "app_key", "app_token", "report_url", "app_domain", "vendor_description",$/;"	v
+field_device	def.h	/^static uint8 *field_device[9] = {"device_id", "device_name", "device_key", "device_identifier", "device_secret", "device_version",$/;"	v
+field_server	def.h	/^static uint8 *field_server[7] = {"server_id", "server_name", "server_key", "server_config", "server_description", "created_at",$/;"	v
+field_status	def.h	/^static uint8 *field_status[2] = {"id", "dev_status"};$/;"	v
+field_sub	def.h	/^static uint8 *field_sub[5] = {"sub_id", "sub_event", "sub_action", "created_at", "updated_at"};$/;"	v
+field_user	def.h	/^static uint8 *field_user[8] = {"user_id", "user_name", "user_password", "user_access_level", "email_addr", "phone_number",$/;"	v
+field_vendor	def.h	/^static uint8 *field_vendor[6] = {"vendor_id", "vendor_name", "vendor_key", "vendor_description", "created_at", "updated_at"};$/;"	v
+firstByteMark	cjson.c	/^static const unsigned char firstByteMark[7] = { 0x00, 0x00, 0xC0, 0xE0, 0xF0, 0xF8, 0xFC };$/;"	v	file:
+free_fn	cjson.h	/^      void (*free_fn)(void *ptr);$/;"	m	struct:cJSON_Hooks
+gif_beacon	web_common.c	/^lwan_http_status_t gif_beacon(lwan_request_t *request __attribute__((unused)),$/;"	f
+hello_world	web_common.c	/^lwan_http_status_t hello_world(lwan_request_t *request,$/;"	f
+int32	def.h	/^typedef signed int		int32;$/;"	t
+int8	def.h	/^typedef signed char		int8;$/;"	t
+json_common_h	json_common.h	9;"	d
+json_data	def.h	/^typedef struct json_data$/;"	s
+json_data_t	def.h	/^} json_data_t;$/;"	t	typeref:struct:json_data
+json_parse	json_common.c	/^int32 json_parse(cJSON *cjson, linklist_t *head, uint32 obj_level, obj_type_t obj_type)$/;"	f
+json_parse_data	json_common.c	/^int32 json_parse_data(linklist_t *head, linklist2_t *buf_out)$/;"	f
+json_parse_protocol	json_common.c	/^int32 json_parse_protocol(uint8 *buf_in, uint32 len_in)$/;"	f
+json_to_sql	json_common.c	/^int32 json_to_sql(db_info_t *db_info, linklist_t *head, linklist2_t *buf_out)$/;"	f
+length	cjson.c	/^typedef struct {char *buffer; int length; int offset; } printbuffer;$/;"	m	struct:__anon1	file:
+linklist	def.h	/^typedef struct linklist$/;"	s
+linklist2	def.h	/^typedef struct linklist2$/;"	s
+linklist2_t	def.h	/^} linklist2_t;$/;"	t	typeref:struct:linklist2
+linklist_insert	json_common.c	/^int32 linklist_insert(linklist_t *head, json_data_t *data)$/;"	f
+linklist_t	def.h	/^} linklist_t;$/;"	t	typeref:struct:linklist
+log_type_t	debug_log.h	/^} log_type_t;$/;"	t	typeref:enum:__anon2
+lwan_run	web_common.c	/^int lwan_run()$/;"	f
+malloc_fn	cjson.h	/^      void *(*malloc_fn)(size_t sz);$/;"	m	struct:cJSON_Hooks
+mysql	def.h	/^static MYSQL *mysql = NULL;$/;"	v
+next	cjson.h	/^	struct cJSON *next,*prev;	\/* next\/prev allow you to walk array\/object chains. Alternatively, use GetArraySize\/GetArrayItem\/GetObjectItem *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::cJSON
+next	def.h	/^	struct json_data *next;$/;"	m	struct:json_data	typeref:struct:json_data::json_data
+next	def.h	/^	struct linklist *next;$/;"	m	struct:linklist	typeref:struct:linklist::linklist
+next	def.h	/^	struct linklist2 *next;$/;"	m	struct:linklist2	typeref:struct:linklist2::linklist2
+obj_type	def.h	/^	obj_type_t obj_type;				\/\/ @存储数据是协议格式数据还是数据库字段信息数据？$/;"	m	struct:linklist
+obj_type_t	def.h	/^} obj_type_t;$/;"	t	typeref:enum:__anon17
+objects	Makefile	/^objects = .\/cjson.o \\$/;"	m
+offset	cjson.c	/^typedef struct {char *buffer; int length; int offset; } printbuffer;$/;"	m	struct:__anon1	file:
+parse_array	cjson.c	/^static const char *parse_array(cJSON *item,const char *value)$/;"	f	file:
+parse_hex4	cjson.c	/^static unsigned parse_hex4(const char *str)$/;"	f	file:
+parse_number	cjson.c	/^static const char *parse_number(cJSON *item,const char *num)$/;"	f	file:
+parse_object	cjson.c	/^static const char *parse_object(cJSON *item,const char *value)$/;"	f	file:
+parse_string	cjson.c	/^static const char *parse_string(cJSON *item,const char *str)$/;"	f	file:
+parse_value	cjson.c	/^static const char *parse_value(cJSON *item,const char *value)$/;"	f	file:
+phone_number	def.h	/^	int32 phone_number[11];$/;"	m	struct:__anon13
+pow2gt	cjson.c	/^static int pow2gt (int x)	{	--x;	x|=x>>1;	x|=x>>2;	x|=x>>4;	x|=x>>8;	x|=x>>16;	return x+1;	}$/;"	f	file:
+prev	cjson.h	/^	struct cJSON *next,*prev;	\/* next\/prev allow you to walk array\/object chains. Alternatively, use GetArraySize\/GetArrayItem\/GetObjectItem *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::
+print	debug_log.c	/^void print(log_type_t flag, char *log)$/;"	f
+print_array	cjson.c	/^static char *print_array(cJSON *item,int depth,int fmt,printbuffer *p)$/;"	f	file:
+print_number	cjson.c	/^static char *print_number(cJSON *item,printbuffer *p)$/;"	f	file:
+print_object	cjson.c	/^static char *print_object(cJSON *item,int depth,int fmt,printbuffer *p)$/;"	f	file:
+print_string	cjson.c	/^static char *print_string(cJSON *item,printbuffer *p)	{return print_string_ptr(item->valuestring,p);}$/;"	f	file:
+print_string_ptr	cjson.c	/^static char *print_string_ptr(const char *str,printbuffer *p)$/;"	f	file:
+print_value	cjson.c	/^static char *print_value(cJSON *item,int depth,int fmt,printbuffer *p)$/;"	f	file:
+printbuffer	cjson.c	/^typedef struct {char *buffer; int length; int offset; } printbuffer;$/;"	t	typeref:struct:__anon1	file:
+protocol_info	def.h	/^static uint8 *protocol_info[] = {"req_type", "db_name", "tab_name", "req_cnt"};$/;"	v
+quit_lwan	web_common.c	/^lwan_http_status_t quit_lwan(lwan_request_t *request __attribute__((unused)),$/;"	f
+readconf_h	readconf.h	9;"	d
+report_url	def.h	/^	uint8 report_url[BUF_CHAR];$/;"	m	struct:__anon11
+req_cnt	def.h	/^	uint32 req_cnt;						\/\/ @数据部分中，请求记录的条数，只计数二级项目$/;"	m	struct:__anon15
+req_type	def.h	/^	uint32 req_type;					\/\/ @请求类型，参见结构 db_opt$/;"	m	struct:__anon15
+return_t	def.h	/^} return_t;$/;"	t	typeref:enum:__anon6
+rsp_insert	api_db_insert.c	/^int rsp_insert()$/;"	f
+server_config	def.h	/^	uint8 server_config[BUF_CHAR];$/;"	m	struct:__anon9
+server_description	def.h	/^	uint8 server_description[BUF_TEXT];$/;"	m	struct:__anon9
+server_key	def.h	/^	uint8 server_key[BUF_CHAR];$/;"	m	struct:__anon9
+server_name	def.h	/^	uint8 server_name[BUF_CHAR];$/;"	m	struct:__anon9
+skip	cjson.c	/^static const char *skip(const char *in) {while (in && *in && (unsigned char)*in<=32) in++; return in;}$/;"	f	file:
+status	def.h	/^typedef signed int		status;$/;"	t
+string	cjson.h	/^	char *string;				\/* The item's name string, if this item is the child of, or is in the list of subitems of an object. *\/$/;"	m	struct:cJSON
+sub_action	def.h	/^	uint8 sub_action[BUF_CHAR];$/;"	m	struct:__anon14
+sub_event	def.h	/^	uint8 sub_event[BUF_CHAR];$/;"	m	struct:__anon14
+suffix_object	cjson.c	/^static void suffix_object(cJSON *prev,cJSON *item) {prev->next=item;item->prev=prev;}$/;"	f	file:
+tab_app_t	def.h	/^}tab_app_t;$/;"	t	typeref:struct:__anon11
+tab_dev_status_t	def.h	/^} tab_dev_status_t;$/;"	t	typeref:struct:__anon12
+tab_device_t	def.h	/^}tab_device_t;$/;"	t	typeref:struct:__anon10
+tab_name	def.h	/^	uint32 tab_name;					\/\/ @数据库表名称，参见结构 db_tab_t$/;"	m	struct:__anon15
+tab_server_t	def.h	/^}tab_server_t;$/;"	t	typeref:struct:__anon9
+tab_sub_t	def.h	/^} tab_sub_t;$/;"	t	typeref:struct:__anon14
+tab_user_t	def.h	/^}tab_user_t;$/;"	t	typeref:struct:__anon13
+tab_vendor_t	def.h	/^}tab_vendor_t;$/;"	t	typeref:struct:__anon8
+test_chunked_encoding	web_common.c	/^lwan_http_status_t test_chunked_encoding(lwan_request_t *request,$/;"	f
+test_post	web_common.c	/^lwan_http_status_t test_post(lwan_request_t *request, lwan_response_t *response,$/;"	f
+test_proxy	web_common.c	/^lwan_http_status_t test_proxy(lwan_request_t *request,$/;"	f
+test_server_sent_event	web_common.c	/^lwan_http_status_t test_server_sent_event(lwan_request_t *request,$/;"	f
+type	cjson.h	/^	int type;					\/* The type of the item, as above. *\/$/;"	m	struct:cJSON
+uint32	def.h	/^typedef unsigned int 	uint32;$/;"	t
+uint8	def.h	/^typedef unsigned char	uint8;$/;"	t
+update	cjson.c	/^static int update(printbuffer *p)$/;"	f	file:
+user_access_level	def.h	/^	int32 user_access_level[BUF_CHAR];$/;"	m	struct:__anon13
+user_name	def.h	/^	uint8 user_name[BUF_SHORT];$/;"	m	struct:__anon13
+user_password	def.h	/^	uint8 user_password[BUF_SHORT];$/;"	m	struct:__anon13
+val_type	def.h	/^	uint32 val_type;					\/\/ @存储字段类型: val_type_t$/;"	m	struct:json_data
+val_type_t	def.h	/^} val_type_t;$/;"	t	typeref:enum:__anon16
+value	def.h	/^	uint8 *value;						\/\/ @存储字段值$/;"	m	struct:json_data
+valuedouble	cjson.h	/^	double valuedouble;			\/* The item's number, if type==cJSON_Number *\/$/;"	m	struct:cJSON
+valueint	cjson.h	/^	int valueint;				\/* The item's number, if type==cJSON_Number *\/$/;"	m	struct:cJSON
+valuestring	cjson.h	/^	char *valuestring;			\/* The item's string, if type==cJSON_String *\/$/;"	m	struct:cJSON
+vendor_description	def.h	/^	uint8 vendor_description[BUF_TEXT];$/;"	m	struct:__anon8
+vendor_key	def.h	/^	uint8 vendor_key[BUF_CHAR];$/;"	m	struct:__anon8
+vendor_name	def.h	/^	uint8 vendor_name[BUF_CHAR];$/;"	m	struct:__anon8
+web_common_h	web_common.h	14;"	d

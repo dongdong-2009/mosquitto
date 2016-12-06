@@ -1,0 +1,2 @@
+MQTT客户端工具：可以直接连接broker然后可以测试订阅发布
+解压MQTT WMQTT Utility Client Toools.zip，双击里面的wmqttSample.jar，即可使用windows版本mqtt客户端工具

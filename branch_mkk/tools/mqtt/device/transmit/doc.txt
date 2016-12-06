@@ -1,0 +1,21 @@
+该部分是Linux ubuntu15.10中模拟设备端的mqtt通信测试
+
+./include
+	包含对mosquitto原始client端代码封装的api声明
+
+./lib
+	1、包含mosquitto原始client的lib库和src源码，将其中的动态库调用修改为静态库
+	2、原本的订阅端实现是订阅主题之后死循环等待发布者发布消息，broker推送，
+		现在增加了，收到消息之后，通过回调函数回传给开发者注册的回调函数，让
+		开发者通过推送的内容判断设备应该的操作
+
+./src
+	1、test目录中是设备端测试demo
+	2、实现
+		1》设备从本地获取ID2
+		2》设备带着ID2去服务器获取生成主题需要的字段
+			如：action MTK server_1 device_1 ---> action/MTK/server_1/device_1
+		3》主题订阅，并注册回调函数用于接收broker推送消息（创建线程）
+		4》模拟设备上报event（发布消息至broker event/MTK/server_1/device_1）
+		5》用于订阅部分异常结束，线程收拾（pthread_join）
+		6》return 0

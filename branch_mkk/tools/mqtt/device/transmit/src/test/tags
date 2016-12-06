@@ -1,0 +1,30 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BUFSIZE	http.h	6;"	d
+BUFSIZE	test.c	13;"	d	file:
+FLAGS	Makefile	/^FLAGS				:= -I..\/..\/lib\/lib -I..\/..\/include$/;"	m
+IP	test.c	15;"	d	file:
+LDFLAGS	Makefile	/^LDFLAGS				:= -L..\/..\/lib\/lib$/;"	m
+LDLIBS	Makefile	/^LDLIBS				:= -lmosquitto -lcares -lpthread $/;"	m
+PORT	test.c	18;"	d	file:
+__HTTP_H__	http.h	2;"	d
+ip	mqtt_client.c	/^static char *ip = "127.0.0.1";$/;"	v	file:
+main	mqtt_client.c	/^int main(void)$/;"	f
+main	test.c	/^int main(int argc, char **argv)$/;"	f
+msg	mqtt_client.c	/^static char *msg = NULL;$/;"	v	file:
+net_connect	http.c	/^int net_connect(unsigned char *IP, unsigned int port)$/;"	f
+net_disconn	http.c	/^int net_disconn(int socked)$/;"	f
+net_recv	http.c	/^int net_recv(int socked, char *buf_recv, int len)$/;"	f
+net_send	http.c	/^int net_send(int socked, char *buf_send, int len)$/;"	f
+pub_topic	mqtt_client.c	/^static char *pub_topic = "event\/ideahos\/server_1\/device_1";$/;"	v	file:
+publish	mqtt_client.c	/^int publish(char *str)$/;"	f
+publish_callback	mqtt_client.c	/^int publish_callback(char *rcv_data)$/;"	f
+publish_dealwith	mqtt_client.c	/^void* publish_dealwith(void *parm)$/;"	f
+publish_flag	mqtt_client.c	/^static int publish_flag = 0;$/;"	v	file:
+sub_dealwith	mqtt_client.c	/^void * sub_dealwith(void *parm)$/;"	f
+sub_topic	mqtt_client.c	/^static char *sub_topic = "action\/ideahos\/server_1\/device_1";$/;"	v	file:
+subscribe	mqtt_client.c	/^int subscribe(void)$/;"	f

@@ -1,0 +1,3 @@
+#WITH_TLS:=yes
+	文件config.mk中的配置被注释掉了，生成静态库没问题，在主Makefile中调用api和静态库时报openssl错误，等待利民的openssl库做好后打开
+

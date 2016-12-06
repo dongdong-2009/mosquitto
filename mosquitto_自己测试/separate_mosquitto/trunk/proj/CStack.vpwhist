@@ -1,0 +1,260 @@
+[Global]
+CurrentProject=CStack.vpj
+[ProjectDates]
+CStack.vpj=20160912084354347
+[ActiveConfig]
+CStack.vpj=Debug
+[TreeExpansion2]
+-@ CStack.vpj
+  + .svn
+    + pristine
+      + 00
+      + 01
+      + 03
+      + 06
+      + 0b
+      + 0e
+      + 10
+      + 11
+      + 14
+      + 1a
+      + 1f
+      + 21
+      + 23
+      + 28
+      + 2c
+      + 2d
+      + 2f
+      + 32
+      + 3c
+      + 40
+      + 44
+      + 46
+      + 48
+      + 4b
+      + 4e
+      + 52
+      + 55
+      + 59
+      + 5a
+      + 60
+      + 6a
+      + 72
+      + 75
+      + 76
+      + 77
+      + 7f
+      + 80
+      + 88
+      + 8b
+      + 91
+      + 92
+      + 94
+      + a0
+      + a7
+      + a9
+      + af
+      + b2
+      + b4
+      + b7
+      + b8
+      + b9
+      + ba
+      + be
+      + c1
+      + c4
+      + c8
+      + cc
+      + d0
+      + d1
+      + d5
+      + da
+      + f2
+      + f6
+      + f7
+      + f8
+      + f9
+      + fd
+      + fe
+  + accredit
+  + build
+  + doc
+  + include
+    + common
+    + curl
+    + log
+    + tbtools
+  + lib
+  + libsrc
+    + common
+    + log
+    + tbtools
+  + proj
+    + Debug
+  + src
+    + config
+  + tools
+  + var
+scroll:0
+[State]
+SCREEN: 1366 768 76 106 1179 632 0 0 M 0 0 0 0 1109 601 0
+CWD: ..\proj
+BUFFER: BN="..\accredit\README.txt"""""
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=1 ST=8 IN=1 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Plain Text	HM=0 MF=33554432 TL=0 MLL=0 ASE=0 LNL=1 LCF=0 CAPS=0 E=70 ESBU2=71 CL="" SC="" SCE= SCU= ALM=0 FWRM=0 HMRE=0 HMRBW=0
+VIEW: LN=.64 CL=28 LE=0 CX=25 CY=1 WI=5 BI=3 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="..\libsrc\common\Md5Util.c"""""
+BI: MA=1 74 1  TABS=1 5  WWS=1 IWT=0 ST=8 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=C/C++	HM=0 MF=33554432 TL=0 MLL=0 ASE=0 LNL=1 LCF=6 CAPS=0 E=70 ESBU2=-1 CL="" SC="" SCE= SCU= ALM=0 FWRM=0 HMRE=0 HMRBW=0
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=0 WI=5 BI=5 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="..\libsrc\common\Makefile"""""
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=1 ST=8 IN=1 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Plain Text	HM=0 MF=33554432 TL=0 MLL=0 ASE=0 LNL=1 LCF=0 CAPS=0 E=70 ESBU2=-1 CL="" SC="" SCE= SCU= ALM=0 FWRM=0 HMRE=0 HMRBW=0
+VIEW: LN=.56 CL=34 LE=0 CX=33 CY=3 WI=5 BI=2 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="..\Makefile"""""
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=1 ST=8 IN=1 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Plain Text	HM=0 MF=51380224 TL=0 MLL=0 ASE=0 LNL=1 LCF=0 CAPS=0 E=70 ESBU2=-1 CL="" SC="" SCE= SCU= ALM=0 FWRM=0 HMRE=0 HMRBW=0
+VIEW: LN=.296 CL=12 LE=0 CX=11 CY=12 WI=5 BI=1 HT=0 HN=0 HF=0 HC=4
+WINDOW: 1 22 1107 578 0 0 N  WF=0 WT=3 "Default Unicode Font,10,0,1" DID=0
+BUFFER: BN="..\libsrc\common\Makefile"""""
+VIEW: LN=.56 CL=34 LE=0 CX=34 CY=3 WI=21 BI=2 HT=0 HN=0 HF=0 HC=4
+WINDOW: 1 22 1107 578 0 0 N  WF=0 WT=6 "Default Unicode Font,10,0,1" DID=0
+BUFFER: BN="..\libsrc\common\Md5Util.c"""""
+VIEW: LN=.0 CL=1 LE=0 CX=6 CY=0 WI=19 BI=5 HT=0 HN=0 HF=0 HC=4
+WINDOW: 1 22 1107 578 0 0 N  WF=0 WT=4 "Default Unicode Font,10,0,1" DID=0
+BUFFER: BN="..\accredit\README.txt"""""
+VIEW: LN=.64 CL=28 LE=0 CX=26 CY=1 WI=15 BI=3 HT=0 HN=0 HF=0 HC=4
+WINDOW: 1 22 1107 574 0 0 N  WF=0 WT=2 "Default Unicode Font,10,0,1" DID=1
+BUFFER: BN="..\Makefile"""""
+VIEW: LN=.296 CL=12 LE=0 CX=12 CY=12 WI=23 BI=1 HT=0 HN=0 HF=0 HC=4
+WINDOW: 1 22 1107 578 0 0 N  WF=0 WT=5 "Default Unicode Font,10,0,1" DID=2
+BUFFER: BN="..\Makefile"""""
+VIEW: LN=.62 CL=1 LE=0 CX=1 CY=3 WI=17 BI=1 HT=0 HN=0 HF=0 HC=4
+MDISTATE: 1
+AAAAAgAAAAIAAAAB2gAAAAIAMAAAAAAAAAA5AAAFVQAAAqoAAAAC6gAAAc4AAAAC+gAAAAUAAAAFAAAAAwAAAAAAAAABAAAAAgAAAAT6AAAABQAAAAUAAAACAAAAAwAAAAQAAAABAAAAAPwAAAAAMgAyADoAOgA6AEUAOgBcAHMAaABhAHIAZQBcAHMAdgBuAFwATQBhAGsAZQBmAGkAbABlAAD/////AAD8AAAAAE4AMwA6ADoAOgBFADoAXABzAGgAYQByAGUAXABzAHYAbgBcAGwAaQBiAHMAcgBjAFwAYwBvAG0AbQBvAG4AXABNAGEAawBlAGYAaQBsAGUAAP////8AAPwAAAAAUAA2ADoAOgA6AEUAOgBcAHMAaABhAHIAZQBcAHMAdgBuAFwAbABpAGIAcwByAGMAXABjAG8AbQBtAG8AbgBcAE0AZAA1AFUAdABpAGwALgBjAAD/////AAD8AAAAADIANQA6ADoAOgBFADoAXABzAGgAYQByAGUAXABzAHYAbgBcAE0AYQBrAGUAZgBpAGwAZQEA/////wAB/AAAAABIADQAOgA6ADoARQA6AFwAcwBoAGEAcgBlAFwAcwB2AG4AXABhAGMAYwByAGUAZABpAHQAXABSAEUAQQBEAE0ARQAuAHQAeAB0AAD/////AAAAAAAA
+FILEHIST: 9
+..\libsrc\common\SingleMap.c
+..\libsrc\common\TopRequest.c
+..\include\common\TopResponse.h
+..\libsrc\common\WebUtils.c
+..\accredit\README.txt
+..\libsrc\common\randomGeneration.c
+..\libsrc\common\Md5Util.c
+..\libsrc\common\Makefile
+..\Makefile
+DEBUG: 0 0 0 0 3 0 gdb
+printf
+strcpy
+std::*
+DEBUG2: 0
+TBCLASS: 0 0
+STANDARD_LAYOUT: 56 1 40 11 4 M 0
+_tbFTPClient_form F=0
+_tbfind_symbol_form F=32
+_tbsearch_form F=8
+_tbbookmarks_form F=8
+_tbdebug_watches_form F=64
+_tbfind_form F=36
+_tbdeltasave_form F=0
+_tbnotification_form F=36
+_tbclass_form F=8
+_tbderivedclasses_form F=40
+_tbbaseclasses_form F=40
+_tbdebug_memory_form F=64
+_tbdebug_classes_form F=64
+_tbdebug_threads_form F=64
+_tbopen_form F=40
+_tbbufftabs_form F=11
+_tbdebug_members_form F=64
+_tbannotations_browser_form F=0
+_tbsymbolcalls_form F=40
+_tbunittest_form F=0
+_tbmessages_browser_form F=8
+_tbregex_form F=40
+_tbdebug_exceptions_form F=384
+_tboutputwin_form F=8
+_tbtagrefs_form F=8
+_tbtagwin_form F=8
+_tbprops_form F=8
+_tbslickc_stack_form F=8
+_tbfilelist_form F=44
+_tbFTPOpen_form F=0
+_tbclipboard_form F=44
+_tbdebug_breakpoints_form F=384
+_tbdebug_regs_form F=64
+_tbdebug_autovars_form F=64
+_tbdebug_locals_form F=64
+_tbdebug_stack_form F=64
+_tbshell_form F=8
+_tbprojects_form F=8
+_tbproctree_form F=8
+_tbcbrowser_form F=8
+_tbproctree_form T=0
+_tbsearch_form T=0
+_tbclass_form T=0
+_tboutputwin_form T=0
+_tbtagwin_form T=0
+_tbprojects_form T=0
+_tbmessages_browser_form T=0
+_tbshell_form T=0
+_tbtagrefs_form T=0
+_tbopen_form T=0
+_tbcbrowser_form T=0
+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
+QTOOLBAR 2 0
+AAAA/wAAAAD9AAAAAAAABVYAAAJyAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAAJx/////wAAAAAAAAAA
+_tbstandard_form 1
+_tbcontext_form 1
+APP_LAYOUT: 56 1 40 11 4 M 0
+_tbFTPClient_form F=0
+_tbfind_symbol_form F=32
+_tbsearch_form F=8
+_tbbookmarks_form F=8
+_tbdebug_watches_form F=64
+_tbfind_form F=36
+_tbdeltasave_form F=0
+_tbnotification_form F=36
+_tbclass_form F=8
+_tbderivedclasses_form F=40
+_tbbaseclasses_form F=40
+_tbdebug_memory_form F=64
+_tbdebug_classes_form F=64
+_tbdebug_threads_form F=64
+_tbopen_form F=40
+_tbbufftabs_form F=11
+_tbdebug_members_form F=64
+_tbannotations_browser_form F=0
+_tbsymbolcalls_form F=40
+_tbunittest_form F=0
+_tbmessages_browser_form F=8
+_tbregex_form F=40
+_tbdebug_exceptions_form F=384
+_tboutputwin_form F=8
+_tbtagrefs_form F=8
+_tbtagwin_form F=8
+_tbprops_form F=8
+_tbslickc_stack_form F=8
+_tbfilelist_form F=44
+_tbFTPOpen_form F=0
+_tbclipboard_form F=44
+_tbdebug_breakpoints_form F=384
+_tbdebug_regs_form F=64
+_tbdebug_autovars_form F=64
+_tbdebug_locals_form F=64
+_tbdebug_stack_form F=64
+_tbshell_form F=8
+_tbprojects_form F=8
+_tbproctree_form F=8
+_tbcbrowser_form F=8
+_tbproctree_form T=0
+_tbsearch_form T=0
+_tbclass_form T=0
+_tboutputwin_form T=0
+_tbtagwin_form T=0
+_tbprojects_form T=0
+_tbmessages_browser_form T=0
+_tbshell_form T=0
+_tbtagrefs_form T=0
+_tbopen_form T=0
+_tbcbrowser_form T=0
+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
+QTOOLBAR 2 0
+AAAA/wAAAAD9AAAAAAAABVYAAAJyAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAAJx/////wAAAAAAAAAA
+_tbstandard_form 1
+_tbcontext_form 1

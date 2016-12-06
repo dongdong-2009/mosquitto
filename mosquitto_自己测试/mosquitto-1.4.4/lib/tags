@@ -1,0 +1,514 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AI_ADDRCONFIG	net_mosq.c	47;"	d	file:
+COMPAT_CLOSE	net_mosq.h	34;"	d
+COMPAT_CLOSE	net_mosq.h	38;"	d
+COMPAT_ECONNRESET	net_mosq.h	35;"	d
+COMPAT_ECONNRESET	net_mosq.h	39;"	d
+COMPAT_EWOULDBLOCK	net_mosq.h	36;"	d
+COMPAT_EWOULDBLOCK	net_mosq.h	40;"	d
+CONNACK	mqtt3_protocol.h	30;"	d
+CONNACK_ACCEPTED	mqtt3_protocol.h	44;"	d
+CONNACK_REFUSED_BAD_USERNAME_PASSWORD	mqtt3_protocol.h	48;"	d
+CONNACK_REFUSED_IDENTIFIER_REJECTED	mqtt3_protocol.h	46;"	d
+CONNACK_REFUSED_NOT_AUTHORIZED	mqtt3_protocol.h	49;"	d
+CONNACK_REFUSED_PROTOCOL_VERSION	mqtt3_protocol.h	45;"	d
+CONNACK_REFUSED_SERVER_UNAVAILABLE	mqtt3_protocol.h	47;"	d
+CONNECT	mqtt3_protocol.h	29;"	d
+DISCONNECT	mqtt3_protocol.h	42;"	d
+HAVE_PSELECT	mosquitto.c	50;"	d	file:
+INVALID_SOCKET	net_mosq.h	45;"	d
+LIBMOSQUITTO_MAJOR	mosquitto.h	46;"	d
+LIBMOSQUITTO_MINOR	mosquitto.h	47;"	d
+LIBMOSQUITTO_REVISION	mosquitto.h	48;"	d
+LIBMOSQUITTO_VERSION_NUMBER	mosquitto.h	50;"	d
+LIB_LDFLAGS	cpp/Makefile	/^	LIB_LDFLAGS:=$(LDFLAGS) -Wl,-soname,libmosquittopp.so.${SOVERSION}$/;"	m
+MOSQ_ERR_ACL_DENIED	mosquitto.h	/^	MOSQ_ERR_ACL_DENIED = 12,$/;"	e	enum:mosq_err_t
+MOSQ_ERR_AUTH	mosquitto.h	/^	MOSQ_ERR_AUTH = 11,$/;"	e	enum:mosq_err_t
+MOSQ_ERR_CONN_LOST	mosquitto.h	/^	MOSQ_ERR_CONN_LOST = 7,$/;"	e	enum:mosq_err_t
+MOSQ_ERR_CONN_PENDING	mosquitto.h	/^	MOSQ_ERR_CONN_PENDING = -1,$/;"	e	enum:mosq_err_t
+MOSQ_ERR_CONN_REFUSED	mosquitto.h	/^	MOSQ_ERR_CONN_REFUSED = 5,$/;"	e	enum:mosq_err_t
+MOSQ_ERR_EAI	mosquitto.h	/^	MOSQ_ERR_EAI = 15,$/;"	e	enum:mosq_err_t
+MOSQ_ERR_ERRNO	mosquitto.h	/^	MOSQ_ERR_ERRNO = 14,$/;"	e	enum:mosq_err_t
+MOSQ_ERR_INVAL	mosquitto.h	/^	MOSQ_ERR_INVAL = 3,$/;"	e	enum:mosq_err_t
+MOSQ_ERR_NOMEM	mosquitto.h	/^	MOSQ_ERR_NOMEM = 1,$/;"	e	enum:mosq_err_t
+MOSQ_ERR_NOT_FOUND	mosquitto.h	/^	MOSQ_ERR_NOT_FOUND = 6,$/;"	e	enum:mosq_err_t
+MOSQ_ERR_NOT_SUPPORTED	mosquitto.h	/^	MOSQ_ERR_NOT_SUPPORTED = 10,$/;"	e	enum:mosq_err_t
+MOSQ_ERR_NO_CONN	mosquitto.h	/^	MOSQ_ERR_NO_CONN = 4,$/;"	e	enum:mosq_err_t
+MOSQ_ERR_PAYLOAD_SIZE	mosquitto.h	/^	MOSQ_ERR_PAYLOAD_SIZE = 9,$/;"	e	enum:mosq_err_t
+MOSQ_ERR_PROTOCOL	mosquitto.h	/^	MOSQ_ERR_PROTOCOL = 2,$/;"	e	enum:mosq_err_t
+MOSQ_ERR_PROXY	mosquitto.h	/^	MOSQ_ERR_PROXY = 16$/;"	e	enum:mosq_err_t
+MOSQ_ERR_SUCCESS	mosquitto.h	/^	MOSQ_ERR_SUCCESS = 0,$/;"	e	enum:mosq_err_t
+MOSQ_ERR_TLS	mosquitto.h	/^	MOSQ_ERR_TLS = 8,$/;"	e	enum:mosq_err_t
+MOSQ_ERR_UNKNOWN	mosquitto.h	/^	MOSQ_ERR_UNKNOWN = 13,$/;"	e	enum:mosq_err_t
+MOSQ_LOG_ALL	mosquitto.h	62;"	d
+MOSQ_LOG_DEBUG	mosquitto.h	58;"	d
+MOSQ_LOG_ERR	mosquitto.h	57;"	d
+MOSQ_LOG_INFO	mosquitto.h	54;"	d
+MOSQ_LOG_NONE	mosquitto.h	53;"	d
+MOSQ_LOG_NOTICE	mosquitto.h	55;"	d
+MOSQ_LOG_SUBSCRIBE	mosquitto.h	59;"	d
+MOSQ_LOG_UNSUBSCRIBE	mosquitto.h	60;"	d
+MOSQ_LOG_WARNING	mosquitto.h	56;"	d
+MOSQ_LOG_WEBSOCKETS	mosquitto.h	61;"	d
+MOSQ_LSB	net_mosq.h	50;"	d
+MOSQ_MQTT_ID_MAX_LENGTH	mosquitto.h	92;"	d
+MOSQ_MSB	net_mosq.h	49;"	d
+MOSQ_OBJS	Makefile	/^MOSQ_OBJS=mosquitto.o \\$/;"	m
+MOSQ_OPT_PROTOCOL_VERSION	mosquitto.h	/^	MOSQ_OPT_PROTOCOL_VERSION = 1,$/;"	e	enum:mosq_opt_t
+MQTT_MAX_PAYLOAD	mqtt3_protocol.h	51;"	d
+MQTT_PROTOCOL_V31	mosquitto.h	94;"	d
+MQTT_PROTOCOL_V311	mosquitto.h	95;"	d
+PINGREQ	mqtt3_protocol.h	40;"	d
+PINGRESP	mqtt3_protocol.h	41;"	d
+PROTOCOL_NAME_v31	mqtt3_protocol.h	22;"	d
+PROTOCOL_NAME_v311	mqtt3_protocol.h	25;"	d
+PROTOCOL_VERSION_v31	mqtt3_protocol.h	23;"	d
+PROTOCOL_VERSION_v311	mqtt3_protocol.h	26;"	d
+PUBACK	mqtt3_protocol.h	32;"	d
+PUBCOMP	mqtt3_protocol.h	35;"	d
+PUBLISH	mqtt3_protocol.h	31;"	d
+PUBREC	mqtt3_protocol.h	33;"	d
+PUBREL	mqtt3_protocol.h	34;"	d
+REAL_WITH_MEMORY_TRACKING	memory_mosq.h	24;"	d
+REAL_WITH_TLS_PSK	tls_mosq.h	31;"	d
+SOCKS_ATYPE_DOMAINNAME	socks_mosq.c	31;"	d	file:
+SOCKS_ATYPE_IP_V4	socks_mosq.c	30;"	d	file:
+SOCKS_ATYPE_IP_V6	socks_mosq.c	32;"	d	file:
+SOCKS_AUTH_GSS	socks_mosq.c	26;"	d	file:
+SOCKS_AUTH_NONE	socks_mosq.c	25;"	d	file:
+SOCKS_AUTH_NO_ACCEPTABLE	socks_mosq.c	28;"	d	file:
+SOCKS_AUTH_USERPASS	socks_mosq.c	27;"	d	file:
+SOCKS_MOSQ_H	socks_mosq.h	18;"	d
+SOCKS_REPLY_ADDRESS_TYPE_NOT_SUPPORTED	socks_mosq.c	42;"	d	file:
+SOCKS_REPLY_COMMAND_NOT_SUPPORTED	socks_mosq.c	41;"	d	file:
+SOCKS_REPLY_CONNECTION_NOT_ALLOWED	socks_mosq.c	36;"	d	file:
+SOCKS_REPLY_CONNECTION_REFUSED	socks_mosq.c	39;"	d	file:
+SOCKS_REPLY_GENERAL_FAILURE	socks_mosq.c	35;"	d	file:
+SOCKS_REPLY_HOST_UNREACHABLE	socks_mosq.c	38;"	d	file:
+SOCKS_REPLY_NETWORK_UNREACHABLE	socks_mosq.c	37;"	d	file:
+SOCKS_REPLY_SUCCEEDED	socks_mosq.c	34;"	d	file:
+SOCKS_REPLY_TTL_EXPIRED	socks_mosq.c	40;"	d	file:
+SSL_DATA_PENDING	tls_mosq.h	21;"	d
+SSL_DATA_PENDING	tls_mosq.h	23;"	d
+STREMPTY	mosquitto_internal.h	260;"	d
+SUBACK	mqtt3_protocol.h	37;"	d
+SUBSCRIBE	mqtt3_protocol.h	36;"	d
+UNSUBACK	mqtt3_protocol.h	39;"	d
+UNSUBSCRIBE	mqtt3_protocol.h	38;"	d
+_DUMMYPTHREAD_H_	dummypthread.h	2;"	d
+_LOGGING_MOSQ_H_	logging_mosq.h	17;"	d
+_MEMORY_MOSQ_H_	memory_mosq.h	18;"	d
+_MESSAGES_MOSQ_H_	messages_mosq.h	17;"	d
+_MOSQUITTOPP_H_	cpp/mosquittopp.h	18;"	d
+_MOSQUITTO_H_	mosquitto.h	18;"	d
+_MOSQUITTO_INTERNAL_H_	mosquitto_internal.h	18;"	d
+_MQTT3_PROTOCOL_H_	mqtt3_protocol.h	18;"	d
+_NET_MOSQ_H_	net_mosq.h	17;"	d
+_READ_HANDLE_H_	read_handle.h	17;"	d
+_SEND_MOSQ_H_	send_mosq.h	17;"	d
+_TIME_MOSQ_H_	time_mosq.h	18;"	d
+_TLS_MOSQ_H_	tls_mosq.h	18;"	d
+_UTIL_MOSQ_H_	util_mosq.h	17;"	d
+_WILL_MOSQ_H_	will_mosq.h	18;"	d
+_WIN32_WINNT	time_mosq.c	23;"	d	file:
+_mosquitto_calloc	memory_mosq.c	/^void *_mosquitto_calloc(size_t nmemb, size_t size)$/;"	f
+_mosquitto_check_keepalive	util_mosq.c	/^void _mosquitto_check_keepalive(struct mosquitto_db *db, struct mosquitto *mosq)$/;"	f
+_mosquitto_connect_init	mosquitto.c	/^static int _mosquitto_connect_init(struct mosquitto *mosq, const char *host, int port, int keepalive, const char *bind_address)$/;"	f	file:
+_mosquitto_destroy	mosquitto.c	/^void _mosquitto_destroy(struct mosquitto *mosq)$/;"	f
+_mosquitto_fopen	util_mosq.c	/^FILE *_mosquitto_fopen(const char *path, const char *mode)$/;"	f
+_mosquitto_free	memory_mosq.c	/^void _mosquitto_free(void *mem)$/;"	f
+_mosquitto_handle_connack	read_handle_client.c	/^int _mosquitto_handle_connack(struct mosquitto *mosq)$/;"	f
+_mosquitto_handle_pingreq	read_handle_shared.c	/^int _mosquitto_handle_pingreq(struct mosquitto *mosq)$/;"	f
+_mosquitto_handle_pingresp	read_handle_shared.c	/^int _mosquitto_handle_pingresp(struct mosquitto *mosq)$/;"	f
+_mosquitto_handle_pubackcomp	read_handle_shared.c	/^int _mosquitto_handle_pubackcomp(struct mosquitto_db *db, struct mosquitto *mosq, const char *type)$/;"	f
+_mosquitto_handle_publish	read_handle.c	/^int _mosquitto_handle_publish(struct mosquitto *mosq)$/;"	f
+_mosquitto_handle_pubrec	read_handle_shared.c	/^int _mosquitto_handle_pubrec(struct mosquitto *mosq)$/;"	f
+_mosquitto_handle_pubrel	read_handle_shared.c	/^int _mosquitto_handle_pubrel(struct mosquitto_db *db, struct mosquitto *mosq)$/;"	f
+_mosquitto_handle_suback	read_handle_shared.c	/^int _mosquitto_handle_suback(struct mosquitto *mosq)$/;"	f
+_mosquitto_handle_unsuback	read_handle_shared.c	/^int _mosquitto_handle_unsuback(struct mosquitto *mosq)$/;"	f
+_mosquitto_hex2bin	util_mosq.c	/^int _mosquitto_hex2bin(const char *hex, unsigned char *bin, int bin_max_len)$/;"	f
+_mosquitto_log_printf	logging_mosq.c	/^int _mosquitto_log_printf(struct mosquitto *mosq, int priority, const char *fmt, ...)$/;"	f
+_mosquitto_loop_rc_handle	mosquitto.c	/^static int _mosquitto_loop_rc_handle(struct mosquitto *mosq, int rc)$/;"	f	file:
+_mosquitto_malloc	memory_mosq.c	/^void *_mosquitto_malloc(size_t size)$/;"	f
+_mosquitto_max_memory_used	memory_mosq.c	/^unsigned long _mosquitto_max_memory_used(void)$/;"	f
+_mosquitto_memory_used	memory_mosq.c	/^unsigned long _mosquitto_memory_used(void)$/;"	f
+_mosquitto_message_cleanup	messages_mosq.c	/^void _mosquitto_message_cleanup(struct mosquitto_message_all **message)$/;"	f
+_mosquitto_message_cleanup_all	messages_mosq.c	/^void _mosquitto_message_cleanup_all(struct mosquitto *mosq)$/;"	f
+_mosquitto_message_delete	messages_mosq.c	/^int _mosquitto_message_delete(struct mosquitto *mosq, uint16_t mid, enum mosquitto_msg_direction dir)$/;"	f
+_mosquitto_message_out_update	messages_mosq.c	/^int _mosquitto_message_out_update(struct mosquitto *mosq, uint16_t mid, enum mosquitto_msg_state state)$/;"	f
+_mosquitto_message_queue	messages_mosq.c	/^int _mosquitto_message_queue(struct mosquitto *mosq, struct mosquitto_message_all *message, enum mosquitto_msg_direction dir)$/;"	f
+_mosquitto_message_remove	messages_mosq.c	/^int _mosquitto_message_remove(struct mosquitto *mosq, uint16_t mid, enum mosquitto_msg_direction dir, struct mosquitto_message_all **message)$/;"	f
+_mosquitto_message_retry_check	messages_mosq.c	/^void _mosquitto_message_retry_check(struct mosquitto *mosq)$/;"	f
+_mosquitto_message_retry_check_actual	messages_mosq.c	/^void _mosquitto_message_retry_check_actual(struct mosquitto *mosq, struct mosquitto_message_all *messages, pthread_mutex_t *mutex)$/;"	f
+_mosquitto_messages_reconnect_reset	messages_mosq.c	/^void _mosquitto_messages_reconnect_reset(struct mosquitto *mosq)$/;"	f
+_mosquitto_mid_generate	util_mosq.c	/^uint16_t _mosquitto_mid_generate(struct mosquitto *mosq)$/;"	f
+_mosquitto_net_cleanup	net_mosq.c	/^void _mosquitto_net_cleanup(void)$/;"	f
+_mosquitto_net_init	net_mosq.c	/^void _mosquitto_net_init(void)$/;"	f
+_mosquitto_net_read	net_mosq.c	/^ssize_t _mosquitto_net_read(struct mosquitto *mosq, void *buf, size_t count)$/;"	f
+_mosquitto_net_write	net_mosq.c	/^ssize_t _mosquitto_net_write(struct mosquitto *mosq, void *buf, size_t count)$/;"	f
+_mosquitto_packet	mosquitto_internal.h	/^struct _mosquitto_packet{$/;"	s
+_mosquitto_packet_alloc	util_mosq.c	/^int _mosquitto_packet_alloc(struct _mosquitto_packet *packet)$/;"	f
+_mosquitto_packet_cleanup	net_mosq.c	/^void _mosquitto_packet_cleanup(struct _mosquitto_packet *packet)$/;"	f
+_mosquitto_packet_handle	read_handle.c	/^int _mosquitto_packet_handle(struct mosquitto *mosq)$/;"	f
+_mosquitto_packet_queue	net_mosq.c	/^int _mosquitto_packet_queue(struct mosquitto *mosq, struct _mosquitto_packet *packet)$/;"	f
+_mosquitto_packet_read	net_mosq.c	/^int _mosquitto_packet_read(struct mosquitto_db *db, struct mosquitto *mosq)$/;"	f
+_mosquitto_packet_write	net_mosq.c	/^int _mosquitto_packet_write(struct mosquitto *mosq)$/;"	f
+_mosquitto_protocol	mosquitto_internal.h	/^enum _mosquitto_protocol {$/;"	g
+_mosquitto_read_byte	net_mosq.c	/^int _mosquitto_read_byte(struct _mosquitto_packet *packet, uint8_t *byte)$/;"	f
+_mosquitto_read_bytes	net_mosq.c	/^int _mosquitto_read_bytes(struct _mosquitto_packet *packet, void *bytes, uint32_t count)$/;"	f
+_mosquitto_read_string	net_mosq.c	/^int _mosquitto_read_string(struct _mosquitto_packet *packet, char **str)$/;"	f
+_mosquitto_read_uint16	net_mosq.c	/^int _mosquitto_read_uint16(struct _mosquitto_packet *packet, uint16_t *word)$/;"	f
+_mosquitto_realloc	memory_mosq.c	/^void *_mosquitto_realloc(void *ptr, size_t size)$/;"	f
+_mosquitto_reconnect	mosquitto.c	/^static int _mosquitto_reconnect(struct mosquitto *mosq, bool blocking)$/;"	f	file:
+_mosquitto_send_command_with_mid	send_mosq.c	/^int _mosquitto_send_command_with_mid(struct mosquitto *mosq, uint8_t command, uint16_t mid, bool dup)$/;"	f
+_mosquitto_send_connect	send_client_mosq.c	/^int _mosquitto_send_connect(struct mosquitto *mosq, uint16_t keepalive, bool clean_session)$/;"	f
+_mosquitto_send_disconnect	send_client_mosq.c	/^int _mosquitto_send_disconnect(struct mosquitto *mosq)$/;"	f
+_mosquitto_send_pingreq	send_mosq.c	/^int _mosquitto_send_pingreq(struct mosquitto *mosq)$/;"	f
+_mosquitto_send_pingresp	send_mosq.c	/^int _mosquitto_send_pingresp(struct mosquitto *mosq)$/;"	f
+_mosquitto_send_puback	send_mosq.c	/^int _mosquitto_send_puback(struct mosquitto *mosq, uint16_t mid)$/;"	f
+_mosquitto_send_pubcomp	send_mosq.c	/^int _mosquitto_send_pubcomp(struct mosquitto *mosq, uint16_t mid)$/;"	f
+_mosquitto_send_publish	send_mosq.c	/^int _mosquitto_send_publish(struct mosquitto *mosq, uint16_t mid, const char *topic, uint32_t payloadlen, const void *payload, int qos, bool retain, bool dup)$/;"	f
+_mosquitto_send_pubrec	send_mosq.c	/^int _mosquitto_send_pubrec(struct mosquitto *mosq, uint16_t mid)$/;"	f
+_mosquitto_send_pubrel	send_mosq.c	/^int _mosquitto_send_pubrel(struct mosquitto *mosq, uint16_t mid)$/;"	f
+_mosquitto_send_real_publish	send_mosq.c	/^int _mosquitto_send_real_publish(struct mosquitto *mosq, uint16_t mid, const char *topic, uint32_t payloadlen, const void *payload, int qos, bool retain, bool dup)$/;"	f
+_mosquitto_send_simple_command	send_mosq.c	/^int _mosquitto_send_simple_command(struct mosquitto *mosq, uint8_t command)$/;"	f
+_mosquitto_send_subscribe	send_client_mosq.c	/^int _mosquitto_send_subscribe(struct mosquitto *mosq, int *mid, const char *topic, uint8_t topic_qos)$/;"	f
+_mosquitto_send_unsubscribe	send_client_mosq.c	/^int _mosquitto_send_unsubscribe(struct mosquitto *mosq, int *mid, const char *topic)$/;"	f
+_mosquitto_server_certificate_verify	tls_mosq.c	/^int _mosquitto_server_certificate_verify(int preverify_ok, X509_STORE_CTX *ctx)$/;"	f
+_mosquitto_socket_close	net_mosq.c	/^int _mosquitto_socket_close(struct mosquitto_db *db, struct mosquitto *mosq)$/;"	f
+_mosquitto_socket_connect	net_mosq.c	/^int _mosquitto_socket_connect(struct mosquitto *mosq, const char *host, uint16_t port, const char *bind_address, bool blocking)$/;"	f
+_mosquitto_socket_nonblock	net_mosq.c	/^int _mosquitto_socket_nonblock(mosq_sock_t sock)$/;"	f
+_mosquitto_socketpair	net_mosq.c	/^int _mosquitto_socketpair(mosq_sock_t *pairR, mosq_sock_t *pairW)$/;"	f
+_mosquitto_strdup	memory_mosq.c	/^char *_mosquitto_strdup(const char *s)$/;"	f
+_mosquitto_thread_main	thread_mosq.c	/^void *_mosquitto_thread_main(void *obj)$/;"	f
+_mosquitto_transport	mosquitto_internal.h	/^enum _mosquitto_transport {$/;"	g
+_mosquitto_try_connect	net_mosq.c	/^int _mosquitto_try_connect(struct mosquitto *mosq, const char *host, uint16_t port, mosq_sock_t *sock, const char *bind_address, bool blocking)$/;"	f
+_mosquitto_verify_certificate_hostname	tls_mosq.c	/^int _mosquitto_verify_certificate_hostname(X509 *cert, const char *hostname)$/;"	f
+_mosquitto_will_clear	will_mosq.c	/^int _mosquitto_will_clear(struct mosquitto *mosq)$/;"	f
+_mosquitto_will_set	will_mosq.c	/^int _mosquitto_will_set(struct mosquitto *mosq, const char *topic, int payloadlen, const void *payload, int qos, bool retain)$/;"	f
+_mosquitto_write_byte	net_mosq.c	/^void _mosquitto_write_byte(struct _mosquitto_packet *packet, uint8_t byte)$/;"	f
+_mosquitto_write_bytes	net_mosq.c	/^void _mosquitto_write_bytes(struct _mosquitto_packet *packet, const void *bytes, uint32_t count)$/;"	f
+_mosquitto_write_string	net_mosq.c	/^void _mosquitto_write_string(struct _mosquitto_packet *packet, const char *str, uint16_t length)$/;"	f
+_mosquitto_write_uint16	net_mosq.c	/^void _mosquitto_write_uint16(struct _mosquitto_packet *packet, uint16_t word)$/;"	f
+_windows_time_version_check	time_mosq.c	/^void _windows_time_version_check(void)$/;"	f
+achan	mosquitto_internal.h	/^	ares_channel achan;$/;"	m	struct:mosquitto
+acl_list	mosquitto_internal.h	/^	struct _mosquitto_acl_user *acl_list;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::_mosquitto_acl_user
+address	mosquitto_internal.h	/^	char *address;$/;"	m	struct:mosquitto
+bind_address	mosquitto_internal.h	/^	char *bind_address;$/;"	m	struct:mosquitto
+bool	mosquitto.h	36;"	d
+bridge	mosquitto_internal.h	/^	struct _mqtt3_bridge *bridge;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::_mqtt3_bridge
+callback_mutex	mosquitto_internal.h	/^	pthread_mutex_t callback_mutex;$/;"	m	struct:mosquitto
+clean_session	mosquitto_internal.h	/^	bool clean_session;$/;"	m	struct:mosquitto
+command	mosquitto_internal.h	/^	uint8_t command;$/;"	m	struct:_mosquitto_packet
+connack_string	cpp/mosquittopp.cpp	/^const char* connack_string(int connack_code)$/;"	f	namespace:mosqpp
+connect	cpp/mosquittopp.cpp	/^int mosquittopp::connect(const char *host, int port, int keepalive)$/;"	f	class:mosqpp::mosquittopp
+connect	cpp/mosquittopp.cpp	/^int mosquittopp::connect(const char *host, int port, int keepalive, const char *bind_address)$/;"	f	class:mosqpp::mosquittopp
+connect_async	cpp/mosquittopp.cpp	/^int mosquittopp::connect_async(const char *host, int port, int keepalive)$/;"	f	class:mosqpp::mosquittopp
+connect_async	cpp/mosquittopp.cpp	/^int mosquittopp::connect_async(const char *host, int port, int keepalive, const char *bind_address)$/;"	f	class:mosqpp::mosquittopp
+current_out_packet	mosquitto_internal.h	/^	struct _mosquitto_packet *current_out_packet;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::_mosquitto_packet
+current_out_packet_mutex	mosquitto_internal.h	/^	pthread_mutex_t current_out_packet_mutex;$/;"	m	struct:mosquitto
+disconnect	cpp/mosquittopp.cpp	/^int mosquittopp::disconnect()$/;"	f	class:mosqpp::mosquittopp
+disconnect_t	mosquitto_internal.h	/^	time_t disconnect_t;$/;"	m	struct:mosquitto
+dup	mosquitto_internal.h	/^	bool dup;$/;"	m	struct:mosquitto_message_all
+false	mosquitto.h	38;"	d
+for_free_next	mosquitto_internal.h	/^	struct mosquitto *for_free_next;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::mosquitto
+hh_id	mosquitto_internal.h	/^	UT_hash_handle hh_id;$/;"	m	struct:mosquitto
+hh_sock	mosquitto_internal.h	/^	UT_hash_handle hh_sock;$/;"	m	struct:mosquitto
+host	mosquitto_internal.h	/^	char *host;$/;"	m	struct:mosquitto
+id	mosquitto_internal.h	/^	char *id;$/;"	m	struct:mosquitto
+in_callback	mosquitto_internal.h	/^	bool in_callback;$/;"	m	struct:mosquitto
+in_message_mutex	mosquitto_internal.h	/^	pthread_mutex_t in_message_mutex;$/;"	m	struct:mosquitto
+in_messages	mosquitto_internal.h	/^	struct mosquitto_message_all *in_messages;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::mosquitto_message_all
+in_messages_last	mosquitto_internal.h	/^	struct mosquitto_message_all *in_messages_last;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::mosquitto_message_all
+in_packet	mosquitto_internal.h	/^	struct _mosquitto_packet in_packet;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::_mosquitto_packet
+in_queue_len	mosquitto_internal.h	/^	int in_queue_len;$/;"	m	struct:mosquitto
+inflight_messages	mosquitto_internal.h	/^	int inflight_messages;$/;"	m	struct:mosquitto
+is_bridge	mosquitto_internal.h	/^	bool is_bridge;$/;"	m	struct:mosquitto
+is_dropping	mosquitto_internal.h	/^	bool is_dropping;$/;"	m	struct:mosquitto
+keepalive	mosquitto_internal.h	/^	uint16_t keepalive;$/;"	m	struct:mosquitto
+last_mid	mosquitto_internal.h	/^	uint16_t last_mid;$/;"	m	struct:mosquitto
+last_msg	mosquitto_internal.h	/^	struct mosquitto_client_msg *last_msg;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::mosquitto_client_msg
+last_msg_in	mosquitto_internal.h	/^	time_t last_msg_in;$/;"	m	struct:mosquitto
+last_msg_out	mosquitto_internal.h	/^	time_t last_msg_out;$/;"	m	struct:mosquitto
+last_retry_check	mosquitto_internal.h	/^	time_t last_retry_check;$/;"	m	struct:mosquitto
+lib_cleanup	cpp/mosquittopp.cpp	/^int lib_cleanup()$/;"	f	namespace:mosqpp
+lib_init	cpp/mosquittopp.cpp	/^int lib_init()$/;"	f	namespace:mosqpp
+lib_version	cpp/mosquittopp.cpp	/^int lib_version(int *major, int *minor, int *revision)$/;"	f	namespace:mosqpp
+libmosq_EXPORT	mosquitto.h	26;"	d
+libmosq_EXPORT	mosquitto.h	28;"	d
+libmosq_EXPORT	mosquitto.h	31;"	d
+listener	mosquitto_internal.h	/^	struct _mqtt3_listener *listener;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::_mqtt3_listener
+log_callback_mutex	mosquitto_internal.h	/^	pthread_mutex_t log_callback_mutex;$/;"	m	struct:mosquitto
+loop	cpp/mosquittopp.cpp	/^int mosquittopp::loop(int timeout, int max_packets)$/;"	f	class:mosqpp::mosquittopp
+loop_forever	cpp/mosquittopp.cpp	/^int mosquittopp::loop_forever(int timeout, int max_packets)$/;"	f	class:mosqpp::mosquittopp
+loop_misc	cpp/mosquittopp.cpp	/^int mosquittopp::loop_misc()$/;"	f	class:mosqpp::mosquittopp
+loop_read	cpp/mosquittopp.cpp	/^int mosquittopp::loop_read(int max_packets)$/;"	f	class:mosqpp::mosquittopp
+loop_start	cpp/mosquittopp.cpp	/^int mosquittopp::loop_start()$/;"	f	class:mosqpp::mosquittopp
+loop_stop	cpp/mosquittopp.cpp	/^int mosquittopp::loop_stop(bool force)$/;"	f	class:mosqpp::mosquittopp
+loop_write	cpp/mosquittopp.cpp	/^int mosquittopp::loop_write(int max_packets)$/;"	f	class:mosqpp::mosquittopp
+m_mosq	cpp/mosquittopp.h	/^		struct mosquitto *m_mosq;$/;"	m	class:mosqpp::mosquittopp	typeref:struct:mosqpp::mosquittopp::mosquitto
+malloc_usable_size	memory_mosq.c	27;"	d	file:
+max_inflight_messages	mosquitto_internal.h	/^	int max_inflight_messages;$/;"	m	struct:mosquitto
+max_inflight_messages_set	cpp/mosquittopp.cpp	/^int mosquittopp::max_inflight_messages_set(unsigned int max_inflight_messages)$/;"	f	class:mosqpp::mosquittopp
+max_memcount	memory_mosq.c	/^static unsigned long max_memcount = 0;$/;"	v	file:
+memcount	memory_mosq.c	/^static unsigned long memcount = 0;$/;"	v	file:
+message_retry	mosquitto_internal.h	/^	unsigned int message_retry;$/;"	m	struct:mosquitto
+message_retry_set	cpp/mosquittopp.cpp	/^void mosquittopp::message_retry_set(unsigned int message_retry)$/;"	f	class:mosqpp::mosquittopp
+mid	mosquitto.h	/^	int mid;$/;"	m	struct:mosquitto_message
+mid	mosquitto_internal.h	/^	uint16_t mid;$/;"	m	struct:_mosquitto_packet
+mid_mutex	mosquitto_internal.h	/^	pthread_mutex_t mid_mutex;$/;"	m	struct:mosquitto
+mosq_cs_connect_async	mosquitto_internal.h	/^	mosq_cs_connect_async = 3,$/;"	e	enum:mosquitto_client_state
+mosq_cs_connect_pending	mosquitto_internal.h	/^	mosq_cs_connect_pending = 4,$/;"	e	enum:mosquitto_client_state
+mosq_cs_connect_srv	mosquitto_internal.h	/^	mosq_cs_connect_srv = 5,$/;"	e	enum:mosquitto_client_state
+mosq_cs_connected	mosquitto_internal.h	/^	mosq_cs_connected = 1,$/;"	e	enum:mosquitto_client_state
+mosq_cs_disconnect_ws	mosquitto_internal.h	/^	mosq_cs_disconnect_ws = 6,$/;"	e	enum:mosquitto_client_state
+mosq_cs_disconnected	mosquitto_internal.h	/^	mosq_cs_disconnected = 7,$/;"	e	enum:mosquitto_client_state
+mosq_cs_disconnecting	mosquitto_internal.h	/^	mosq_cs_disconnecting = 2,$/;"	e	enum:mosquitto_client_state
+mosq_cs_expiring	mosquitto_internal.h	/^	mosq_cs_expiring = 15,$/;"	e	enum:mosquitto_client_state
+mosq_cs_new	mosquitto_internal.h	/^	mosq_cs_new = 0,$/;"	e	enum:mosquitto_client_state
+mosq_cs_socks5_auth_ok	mosquitto_internal.h	/^	mosq_cs_socks5_auth_ok = 12,$/;"	e	enum:mosquitto_client_state
+mosq_cs_socks5_new	mosquitto_internal.h	/^	mosq_cs_socks5_new = 8,$/;"	e	enum:mosquitto_client_state
+mosq_cs_socks5_reply	mosquitto_internal.h	/^	mosq_cs_socks5_reply = 11,$/;"	e	enum:mosquitto_client_state
+mosq_cs_socks5_request	mosquitto_internal.h	/^	mosq_cs_socks5_request = 10,$/;"	e	enum:mosquitto_client_state
+mosq_cs_socks5_send_userpass	mosquitto_internal.h	/^	mosq_cs_socks5_send_userpass = 14,$/;"	e	enum:mosquitto_client_state
+mosq_cs_socks5_start	mosquitto_internal.h	/^	mosq_cs_socks5_start = 9,$/;"	e	enum:mosquitto_client_state
+mosq_cs_socks5_userpass_reply	mosquitto_internal.h	/^	mosq_cs_socks5_userpass_reply = 13,$/;"	e	enum:mosquitto_client_state
+mosq_err_t	mosquitto.h	/^enum mosq_err_t {$/;"	g
+mosq_md_in	mosquitto_internal.h	/^	mosq_md_in = 0,$/;"	e	enum:mosquitto_msg_direction
+mosq_md_out	mosquitto_internal.h	/^	mosq_md_out = 1$/;"	e	enum:mosquitto_msg_direction
+mosq_ms_invalid	mosquitto_internal.h	/^	mosq_ms_invalid = 0,$/;"	e	enum:mosquitto_msg_state
+mosq_ms_publish_qos0	mosquitto_internal.h	/^	mosq_ms_publish_qos0 = 1,$/;"	e	enum:mosquitto_msg_state
+mosq_ms_publish_qos1	mosquitto_internal.h	/^	mosq_ms_publish_qos1 = 2,$/;"	e	enum:mosquitto_msg_state
+mosq_ms_publish_qos2	mosquitto_internal.h	/^	mosq_ms_publish_qos2 = 4,$/;"	e	enum:mosquitto_msg_state
+mosq_ms_queued	mosquitto_internal.h	/^	mosq_ms_queued = 11$/;"	e	enum:mosquitto_msg_state
+mosq_ms_resend_pubcomp	mosquitto_internal.h	/^	mosq_ms_resend_pubcomp = 8,$/;"	e	enum:mosquitto_msg_state
+mosq_ms_resend_pubrel	mosquitto_internal.h	/^	mosq_ms_resend_pubrel = 6,$/;"	e	enum:mosquitto_msg_state
+mosq_ms_send_pubrec	mosquitto_internal.h	/^	mosq_ms_send_pubrec = 10,$/;"	e	enum:mosquitto_msg_state
+mosq_ms_wait_for_puback	mosquitto_internal.h	/^	mosq_ms_wait_for_puback = 3,$/;"	e	enum:mosquitto_msg_state
+mosq_ms_wait_for_pubcomp	mosquitto_internal.h	/^	mosq_ms_wait_for_pubcomp = 9,$/;"	e	enum:mosquitto_msg_state
+mosq_ms_wait_for_pubrec	mosquitto_internal.h	/^	mosq_ms_wait_for_pubrec = 5,$/;"	e	enum:mosquitto_msg_state
+mosq_ms_wait_for_pubrel	mosquitto_internal.h	/^	mosq_ms_wait_for_pubrel = 7,$/;"	e	enum:mosquitto_msg_state
+mosq_opt_t	mosquitto.h	/^enum mosq_opt_t {$/;"	g
+mosq_p_invalid	mosquitto_internal.h	/^	mosq_p_invalid = 0,$/;"	e	enum:_mosquitto_protocol
+mosq_p_mqtt31	mosquitto_internal.h	/^	mosq_p_mqtt31 = 1,$/;"	e	enum:_mosquitto_protocol
+mosq_p_mqtt311	mosquitto_internal.h	/^	mosq_p_mqtt311 = 2,$/;"	e	enum:_mosquitto_protocol
+mosq_p_mqtts	mosquitto_internal.h	/^	mosq_p_mqtts = 3$/;"	e	enum:_mosquitto_protocol
+mosq_sock_t	mosquitto_internal.h	/^typedef SOCKET mosq_sock_t;$/;"	t
+mosq_sock_t	mosquitto_internal.h	/^typedef int mosq_sock_t;$/;"	t
+mosq_t_invalid	mosquitto_internal.h	/^	mosq_t_invalid = 0,$/;"	e	enum:_mosquitto_transport
+mosq_t_sctp	mosquitto_internal.h	/^	mosq_t_sctp = 3$/;"	e	enum:_mosquitto_transport
+mosq_t_tcp	mosquitto_internal.h	/^	mosq_t_tcp = 1,$/;"	e	enum:_mosquitto_transport
+mosq_t_ws	mosquitto_internal.h	/^	mosq_t_ws = 2,$/;"	e	enum:_mosquitto_transport
+mosqpp	cpp/mosquittopp.cpp	/^namespace mosqpp {$/;"	n	file:
+mosqpp	cpp/mosquittopp.h	/^namespace mosqpp {$/;"	n
+mosqpp_EXPORT	cpp/mosquittopp.h	22;"	d
+mosqpp_EXPORT	cpp/mosquittopp.h	24;"	d
+mosqpp_EXPORT	cpp/mosquittopp.h	27;"	d
+mosquitto	mosquitto_internal.h	/^struct mosquitto {$/;"	s
+mosquitto__cmp_hostname_wildcard	tls_mosq.c	/^int mosquitto__cmp_hostname_wildcard(char *certname, const char *hostname)$/;"	f
+mosquitto__socket_connect_tls	net_mosq.c	/^int mosquitto__socket_connect_tls(struct mosquitto *mosq)$/;"	f
+mosquitto__socks5_read	socks_mosq.c	/^int mosquitto__socks5_read(struct mosquitto *mosq)$/;"	f
+mosquitto__socks5_send	socks_mosq.c	/^int mosquitto__socks5_send(struct mosquitto *mosq)$/;"	f
+mosquitto_client_state	mosquitto_internal.h	/^enum mosquitto_client_state {$/;"	g
+mosquitto_connack_string	mosquitto.c	/^const char *mosquitto_connack_string(int connack_code)$/;"	f
+mosquitto_connect	mosquitto.c	/^int mosquitto_connect(struct mosquitto *mosq, const char *host, int port, int keepalive)$/;"	f
+mosquitto_connect_async	mosquitto.c	/^int mosquitto_connect_async(struct mosquitto *mosq, const char *host, int port, int keepalive)$/;"	f
+mosquitto_connect_bind	mosquitto.c	/^int mosquitto_connect_bind(struct mosquitto *mosq, const char *host, int port, int keepalive, const char *bind_address)$/;"	f
+mosquitto_connect_bind_async	mosquitto.c	/^int mosquitto_connect_bind_async(struct mosquitto *mosq, const char *host, int port, int keepalive, const char *bind_address)$/;"	f
+mosquitto_connect_callback_set	mosquitto.c	/^void mosquitto_connect_callback_set(struct mosquitto *mosq, void (*on_connect)(struct mosquitto *, void *, int))$/;"	f
+mosquitto_connect_srv	srv_mosq.c	/^int mosquitto_connect_srv(struct mosquitto *mosq, const char *host, int keepalive, const char *bind_address)$/;"	f
+mosquitto_destroy	mosquitto.c	/^void mosquitto_destroy(struct mosquitto *mosq)$/;"	f
+mosquitto_disconnect	mosquitto.c	/^int mosquitto_disconnect(struct mosquitto *mosq)$/;"	f
+mosquitto_disconnect_callback_set	mosquitto.c	/^void mosquitto_disconnect_callback_set(struct mosquitto *mosq, void (*on_disconnect)(struct mosquitto *, void *, int))$/;"	f
+mosquitto_lib_cleanup	mosquitto.c	/^int mosquitto_lib_cleanup(void)$/;"	f
+mosquitto_lib_init	mosquitto.c	/^int mosquitto_lib_init(void)$/;"	f
+mosquitto_lib_version	mosquitto.c	/^int mosquitto_lib_version(int *major, int *minor, int *revision)$/;"	f
+mosquitto_log_callback_set	mosquitto.c	/^void mosquitto_log_callback_set(struct mosquitto *mosq, void (*on_log)(struct mosquitto *, void *, int, const char *))$/;"	f
+mosquitto_loop	mosquitto.c	/^int mosquitto_loop(struct mosquitto *mosq, int timeout, int max_packets)$/;"	f
+mosquitto_loop_forever	mosquitto.c	/^int mosquitto_loop_forever(struct mosquitto *mosq, int timeout, int max_packets)$/;"	f
+mosquitto_loop_misc	mosquitto.c	/^int mosquitto_loop_misc(struct mosquitto *mosq)$/;"	f
+mosquitto_loop_read	mosquitto.c	/^int mosquitto_loop_read(struct mosquitto *mosq, int max_packets)$/;"	f
+mosquitto_loop_start	thread_mosq.c	/^int mosquitto_loop_start(struct mosquitto *mosq)$/;"	f
+mosquitto_loop_stop	thread_mosq.c	/^int mosquitto_loop_stop(struct mosquitto *mosq, bool force)$/;"	f
+mosquitto_loop_write	mosquitto.c	/^int mosquitto_loop_write(struct mosquitto *mosq, int max_packets)$/;"	f
+mosquitto_max_inflight_messages_set	messages_mosq.c	/^int mosquitto_max_inflight_messages_set(struct mosquitto *mosq, unsigned int max_inflight_messages)$/;"	f
+mosquitto_message	mosquitto.h	/^struct mosquitto_message{$/;"	s
+mosquitto_message_all	mosquitto_internal.h	/^struct mosquitto_message_all{$/;"	s
+mosquitto_message_callback_set	mosquitto.c	/^void mosquitto_message_callback_set(struct mosquitto *mosq, void (*on_message)(struct mosquitto *, void *, const struct mosquitto_message *))$/;"	f
+mosquitto_message_copy	messages_mosq.c	/^int mosquitto_message_copy(struct mosquitto_message *dst, const struct mosquitto_message *src)$/;"	f
+mosquitto_message_free	messages_mosq.c	/^void mosquitto_message_free(struct mosquitto_message **message)$/;"	f
+mosquitto_message_retry_set	messages_mosq.c	/^void mosquitto_message_retry_set(struct mosquitto *mosq, unsigned int message_retry)$/;"	f
+mosquitto_msg_direction	mosquitto_internal.h	/^enum mosquitto_msg_direction {$/;"	g
+mosquitto_msg_state	mosquitto_internal.h	/^enum mosquitto_msg_state {$/;"	g
+mosquitto_new	mosquitto.c	/^struct mosquitto *mosquitto_new(const char *id, bool clean_session, void *userdata)$/;"	f
+mosquitto_opts_set	mosquitto.c	/^int mosquitto_opts_set(struct mosquitto *mosq, enum mosq_opt_t option, void *value)$/;"	f
+mosquitto_pub_topic_check	util_mosq.c	/^int mosquitto_pub_topic_check(const char *str)$/;"	f
+mosquitto_publish	mosquitto.c	/^int mosquitto_publish(struct mosquitto *mosq, int *mid, const char *topic, int payloadlen, const void *payload, int qos, bool retain)$/;"	f
+mosquitto_publish_callback_set	mosquitto.c	/^void mosquitto_publish_callback_set(struct mosquitto *mosq, void (*on_publish)(struct mosquitto *, void *, int))$/;"	f
+mosquitto_reconnect	mosquitto.c	/^int mosquitto_reconnect(struct mosquitto *mosq)$/;"	f
+mosquitto_reconnect_async	mosquitto.c	/^int mosquitto_reconnect_async(struct mosquitto *mosq)$/;"	f
+mosquitto_reconnect_delay_set	mosquitto.c	/^int mosquitto_reconnect_delay_set(struct mosquitto *mosq, unsigned int reconnect_delay, unsigned int reconnect_delay_max, bool reconnect_exponential_backoff)$/;"	f
+mosquitto_reinitialise	mosquitto.c	/^int mosquitto_reinitialise(struct mosquitto *mosq, const char *id, bool clean_session, void *userdata)$/;"	f
+mosquitto_socket	mosquitto.c	/^int mosquitto_socket(struct mosquitto *mosq)$/;"	f
+mosquitto_socks5_set	socks_mosq.c	/^int mosquitto_socks5_set(struct mosquitto *mosq, const char *host, int port, const char *username, const char *password)$/;"	f
+mosquitto_strerror	mosquitto.c	/^const char *mosquitto_strerror(int mosq_errno)$/;"	f
+mosquitto_sub_topic_check	util_mosq.c	/^int mosquitto_sub_topic_check(const char *str)$/;"	f
+mosquitto_sub_topic_tokenise	mosquitto.c	/^int mosquitto_sub_topic_tokenise(const char *subtopic, char ***topics, int *count)$/;"	f
+mosquitto_sub_topic_tokens_free	mosquitto.c	/^int mosquitto_sub_topic_tokens_free(char ***topics, int count)$/;"	f
+mosquitto_subscribe	mosquitto.c	/^int mosquitto_subscribe(struct mosquitto *mosq, int *mid, const char *sub, int qos)$/;"	f
+mosquitto_subscribe_callback_set	mosquitto.c	/^void mosquitto_subscribe_callback_set(struct mosquitto *mosq, void (*on_subscribe)(struct mosquitto *, void *, int, int, const int *))$/;"	f
+mosquitto_threaded_set	thread_mosq.c	/^int mosquitto_threaded_set(struct mosquitto *mosq, bool threaded)$/;"	f
+mosquitto_time	time_mosq.c	/^time_t mosquitto_time(void)$/;"	f
+mosquitto_tls_insecure_set	mosquitto.c	/^int mosquitto_tls_insecure_set(struct mosquitto *mosq, bool value)$/;"	f
+mosquitto_tls_opts_set	mosquitto.c	/^int mosquitto_tls_opts_set(struct mosquitto *mosq, int cert_reqs, const char *tls_version, const char *ciphers)$/;"	f
+mosquitto_tls_psk_set	mosquitto.c	/^int mosquitto_tls_psk_set(struct mosquitto *mosq, const char *psk, const char *identity, const char *ciphers)$/;"	f
+mosquitto_tls_set	mosquitto.c	/^int mosquitto_tls_set(struct mosquitto *mosq, const char *cafile, const char *capath, const char *certfile, const char *keyfile, int (*pw_callback)(char *buf, int size, int rwflag, void *userdata))$/;"	f
+mosquitto_topic_matches_sub	util_mosq.c	/^int mosquitto_topic_matches_sub(const char *sub, const char *topic, bool *result)$/;"	f
+mosquitto_unsubscribe	mosquitto.c	/^int mosquitto_unsubscribe(struct mosquitto *mosq, int *mid, const char *sub)$/;"	f
+mosquitto_unsubscribe_callback_set	mosquitto.c	/^void mosquitto_unsubscribe_callback_set(struct mosquitto *mosq, void (*on_unsubscribe)(struct mosquitto *, void *, int))$/;"	f
+mosquitto_user_data_set	mosquitto.c	/^void mosquitto_user_data_set(struct mosquitto *mosq, void *userdata)$/;"	f
+mosquitto_username_pw_set	mosquitto.c	/^int mosquitto_username_pw_set(struct mosquitto *mosq, const char *username, const char *password)$/;"	f
+mosquitto_want_write	mosquitto.c	/^bool mosquitto_want_write(struct mosquitto *mosq)$/;"	f
+mosquitto_will_clear	mosquitto.c	/^int mosquitto_will_clear(struct mosquitto *mosq)$/;"	f
+mosquitto_will_set	mosquitto.c	/^int mosquitto_will_set(struct mosquitto *mosq, const char *topic, int payloadlen, const void *payload, int qos, bool retain)$/;"	f
+mosquittopp	cpp/mosquittopp.cpp	/^mosquittopp::mosquittopp(const char *id, bool clean_session)$/;"	f	class:mosqpp::mosquittopp
+mosquittopp	cpp/mosquittopp.h	/^class mosqpp_EXPORT mosquittopp {$/;"	c	namespace:mosqpp
+msg	mosquitto_internal.h	/^	struct mosquitto_message msg;$/;"	m	struct:mosquitto_message_all	typeref:struct:mosquitto_message_all::mosquitto_message
+msg_count	mosquitto_internal.h	/^	int msg_count;$/;"	m	struct:mosquitto
+msg_count12	mosquitto_internal.h	/^	int msg_count12;$/;"	m	struct:mosquitto
+msgs	mosquitto_internal.h	/^	struct mosquitto_client_msg *msgs;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::mosquitto_client_msg
+msgtime_mutex	mosquitto_internal.h	/^	pthread_mutex_t msgtime_mutex;$/;"	m	struct:mosquitto
+next	mosquitto_internal.h	/^	struct _mosquitto_packet *next;$/;"	m	struct:_mosquitto_packet	typeref:struct:_mosquitto_packet::_mosquitto_packet
+next	mosquitto_internal.h	/^	struct mosquitto_message_all *next;$/;"	m	struct:mosquitto_message_all	typeref:struct:mosquitto_message_all::mosquitto_message_all
+on_connect	cpp/mosquittopp.h	/^		virtual void on_connect(int rc) {return;};$/;"	f	class:mosqpp::mosquittopp
+on_connect	mosquitto_internal.h	/^	void (*on_connect)(struct mosquitto *, void *userdata, int rc);$/;"	m	struct:mosquitto
+on_connect_wrapper	cpp/mosquittopp.cpp	/^static void on_connect_wrapper(struct mosquitto *mosq, void *userdata, int rc)$/;"	f	namespace:mosqpp
+on_disconnect	cpp/mosquittopp.h	/^		virtual void on_disconnect(int rc) {return;};$/;"	f	class:mosqpp::mosquittopp
+on_disconnect	mosquitto_internal.h	/^	void (*on_disconnect)(struct mosquitto *, void *userdata, int rc);$/;"	m	struct:mosquitto
+on_disconnect_wrapper	cpp/mosquittopp.cpp	/^static void on_disconnect_wrapper(struct mosquitto *mosq, void *userdata, int rc)$/;"	f	namespace:mosqpp
+on_error	cpp/mosquittopp.h	/^		virtual void on_error() {return;};$/;"	f	class:mosqpp::mosquittopp
+on_log	cpp/mosquittopp.h	/^		virtual void on_log(int level, const char *str) {return;};$/;"	f	class:mosqpp::mosquittopp
+on_log	mosquitto_internal.h	/^	void (*on_log)(struct mosquitto *, void *userdata, int level, const char *str);$/;"	m	struct:mosquitto
+on_log_wrapper	cpp/mosquittopp.cpp	/^static void on_log_wrapper(struct mosquitto *mosq, void *userdata, int level, const char *str)$/;"	f	namespace:mosqpp
+on_message	cpp/mosquittopp.h	/^		virtual void on_message(const struct mosquitto_message *message) {return;};$/;"	f	class:mosqpp::mosquittopp
+on_message	mosquitto_internal.h	/^	void (*on_message)(struct mosquitto *, void *userdata, const struct mosquitto_message *message);$/;"	m	struct:mosquitto
+on_message_wrapper	cpp/mosquittopp.cpp	/^static void on_message_wrapper(struct mosquitto *mosq, void *userdata, const struct mosquitto_message *message)$/;"	f	namespace:mosqpp
+on_publish	cpp/mosquittopp.h	/^		virtual void on_publish(int mid) {return;};$/;"	f	class:mosqpp::mosquittopp
+on_publish	mosquitto_internal.h	/^	void (*on_publish)(struct mosquitto *, void *userdata, int mid);$/;"	m	struct:mosquitto
+on_publish_wrapper	cpp/mosquittopp.cpp	/^static void on_publish_wrapper(struct mosquitto *mosq, void *userdata, int mid)$/;"	f	namespace:mosqpp
+on_subscribe	cpp/mosquittopp.h	/^		virtual void on_subscribe(int mid, int qos_count, const int *granted_qos) {return;};$/;"	f	class:mosqpp::mosquittopp
+on_subscribe	mosquitto_internal.h	/^	void (*on_subscribe)(struct mosquitto *, void *userdata, int mid, int qos_count, const int *granted_qos);$/;"	m	struct:mosquitto
+on_subscribe_wrapper	cpp/mosquittopp.cpp	/^static void on_subscribe_wrapper(struct mosquitto *mosq, void *userdata, int mid, int qos_count, const int *granted_qos)$/;"	f	namespace:mosqpp
+on_unsubscribe	cpp/mosquittopp.h	/^		virtual void on_unsubscribe(int mid) {return;};$/;"	f	class:mosqpp::mosquittopp
+on_unsubscribe	mosquitto_internal.h	/^	void (*on_unsubscribe)(struct mosquitto *, void *userdata, int mid);$/;"	m	struct:mosquitto
+on_unsubscribe_wrapper	cpp/mosquittopp.cpp	/^static void on_unsubscribe_wrapper(struct mosquitto *mosq, void *userdata, int mid)$/;"	f	namespace:mosqpp
+opts_set	cpp/mosquittopp.cpp	/^int mosquittopp::opts_set(enum mosq_opt_t option, void *value)$/;"	f	class:mosqpp::mosquittopp
+out_message_mutex	mosquitto_internal.h	/^	pthread_mutex_t out_message_mutex;$/;"	m	struct:mosquitto
+out_messages	mosquitto_internal.h	/^	struct mosquitto_message_all *out_messages;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::mosquitto_message_all
+out_messages_last	mosquitto_internal.h	/^	struct mosquitto_message_all *out_messages_last;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::mosquitto_message_all
+out_packet	mosquitto_internal.h	/^	struct _mosquitto_packet *out_packet;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::_mosquitto_packet
+out_packet_last	mosquitto_internal.h	/^	struct _mosquitto_packet *out_packet_last;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::_mosquitto_packet
+out_packet_mutex	mosquitto_internal.h	/^	pthread_mutex_t out_packet_mutex;$/;"	m	struct:mosquitto
+out_queue_len	mosquitto_internal.h	/^	int out_queue_len;$/;"	m	struct:mosquitto
+packet_length	mosquitto_internal.h	/^	uint32_t packet_length;$/;"	m	struct:_mosquitto_packet
+password	mosquitto_internal.h	/^	char *password;$/;"	m	struct:mosquitto
+payload	mosquitto.h	/^	void *payload;$/;"	m	struct:mosquitto_message
+payload	mosquitto_internal.h	/^	uint8_t *payload;$/;"	m	struct:_mosquitto_packet
+payloadlen	mosquitto.h	/^	int payloadlen;$/;"	m	struct:mosquitto_message
+ping_t	mosquitto_internal.h	/^	time_t ping_t;$/;"	m	struct:mosquitto
+pollfd_index	mosquitto_internal.h	/^	int pollfd_index;$/;"	m	struct:mosquitto
+port	mosquitto_internal.h	/^	int port;$/;"	m	struct:mosquitto
+pos	mosquitto_internal.h	/^	uint32_t pos;$/;"	m	struct:_mosquitto_packet
+protocol	mosquitto_internal.h	/^	enum _mosquitto_protocol protocol;$/;"	m	struct:mosquitto	typeref:enum:mosquitto::_mosquitto_protocol
+psk_client_callback	net_mosq.c	/^static unsigned int psk_client_callback(SSL *ssl, const char *hint,$/;"	f	file:
+pthread_cancel	dummypthread.h	6;"	d
+pthread_create	dummypthread.h	4;"	d
+pthread_join	dummypthread.h	5;"	d
+pthread_mutex_destroy	dummypthread.h	9;"	d
+pthread_mutex_init	dummypthread.h	8;"	d
+pthread_mutex_lock	dummypthread.h	10;"	d
+pthread_mutex_unlock	dummypthread.h	11;"	d
+publish	cpp/mosquittopp.cpp	/^int mosquittopp::publish(int *mid, const char *topic, int payloadlen, const void *payload, int qos, bool retain)$/;"	f	class:mosqpp::mosquittopp
+qos	mosquitto.h	/^	int qos;$/;"	m	struct:mosquitto_message
+reconnect	cpp/mosquittopp.cpp	/^int mosquittopp::reconnect()$/;"	f	class:mosqpp::mosquittopp
+reconnect_async	cpp/mosquittopp.cpp	/^int mosquittopp::reconnect_async()$/;"	f	class:mosqpp::mosquittopp
+reconnect_delay	mosquitto_internal.h	/^	unsigned int reconnect_delay;$/;"	m	struct:mosquitto
+reconnect_delay_max	mosquitto_internal.h	/^	unsigned int reconnect_delay_max;$/;"	m	struct:mosquitto
+reconnect_delay_set	cpp/mosquittopp.cpp	/^void mosquittopp::reconnect_delay_set(unsigned int reconnect_delay, unsigned int reconnect_delay_max, bool reconnect_exponential_backoff)$/;"	f	class:mosqpp::mosquittopp
+reconnect_exponential_backoff	mosquitto_internal.h	/^	bool reconnect_exponential_backoff;$/;"	m	struct:mosquitto
+reinitialise	cpp/mosquittopp.cpp	/^int mosquittopp::reinitialise(const char *id, bool clean_session)$/;"	f	class:mosqpp::mosquittopp
+remaining_count	mosquitto_internal.h	/^	int8_t remaining_count;$/;"	m	struct:_mosquitto_packet
+remaining_length	mosquitto_internal.h	/^	uint32_t remaining_length;$/;"	m	struct:_mosquitto_packet
+remaining_mult	mosquitto_internal.h	/^	uint32_t remaining_mult;$/;"	m	struct:_mosquitto_packet
+retain	mosquitto.h	/^	bool retain;$/;"	m	struct:mosquitto_message
+sock	mosquitto_internal.h	/^	mosq_sock_t sock;$/;"	m	struct:mosquitto
+socket	cpp/mosquittopp.cpp	/^int mosquittopp::socket()$/;"	f	class:mosqpp::mosquittopp
+sockpairR	mosquitto_internal.h	/^	mosq_sock_t sockpairR, sockpairW;$/;"	m	struct:mosquitto
+sockpairW	mosquitto_internal.h	/^	mosq_sock_t sockpairR, sockpairW;$/;"	m	struct:mosquitto
+socks5_host	mosquitto_internal.h	/^	char *socks5_host;$/;"	m	struct:mosquitto
+socks5_password	mosquitto_internal.h	/^	char *socks5_password;$/;"	m	struct:mosquitto
+socks5_port	mosquitto_internal.h	/^	int socks5_port;$/;"	m	struct:mosquitto
+socks5_set	cpp/mosquittopp.cpp	/^int mosquittopp::socks5_set(const char *host, int port, const char *username, const char *password)$/;"	f	class:mosqpp::mosquittopp
+socks5_username	mosquitto_internal.h	/^	char *socks5_username;$/;"	m	struct:mosquitto
+srv_callback	srv_mosq.c	/^static void srv_callback(void *arg, int status, int timeouts, unsigned char *abuf, int alen)$/;"	f	file:
+ssize_t	mosquitto.c	/^typedef int ssize_t;$/;"	t	file:
+ssize_t	net_mosq.h	/^typedef int ssize_t;$/;"	t
+ssl	mosquitto_internal.h	/^	SSL *ssl;$/;"	m	struct:mosquitto
+ssl_ctx	mosquitto_internal.h	/^	SSL_CTX *ssl_ctx;$/;"	m	struct:mosquitto
+state	mosquitto_internal.h	/^	enum mosquitto_client_state state;$/;"	m	struct:mosquitto	typeref:enum:mosquitto::mosquitto_client_state
+state	mosquitto_internal.h	/^	enum mosquitto_msg_state state;$/;"	m	struct:mosquitto_message_all	typeref:enum:mosquitto_message_all::mosquitto_msg_state
+state_mutex	mosquitto_internal.h	/^	pthread_mutex_t state_mutex;$/;"	m	struct:mosquitto
+strerror	cpp/mosquittopp.cpp	/^const char* strerror(int mosq_errno)$/;"	f	namespace:mosqpp
+sub_count	mosquitto_internal.h	/^	int sub_count;$/;"	m	struct:mosquitto
+sub_topic_tokenise	cpp/mosquittopp.cpp	/^int sub_topic_tokenise(const char *subtopic, char ***topics, int *count)$/;"	f	namespace:mosqpp
+sub_topic_tokens_free	cpp/mosquittopp.cpp	/^int sub_topic_tokens_free(char ***topics, int count)$/;"	f	namespace:mosqpp
+subs	mosquitto_internal.h	/^	struct _mosquitto_subhier **subs;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::_mosquitto_subhier
+subscribe	cpp/mosquittopp.cpp	/^int mosquittopp::subscribe(int *mid, const char *sub, int qos)$/;"	f	class:mosqpp::mosquittopp
+thread_id	mosquitto_internal.h	/^	pthread_t thread_id;$/;"	m	struct:mosquitto
+threaded	mosquitto_internal.h	/^	bool threaded;$/;"	m	struct:mosquitto
+threaded_set	cpp/mosquittopp.cpp	/^int mosquittopp::threaded_set(bool threaded)$/;"	f	class:mosqpp::mosquittopp
+tick64	time_mosq.c	/^static bool tick64 = false;$/;"	v	file:
+timestamp	mosquitto_internal.h	/^	time_t timestamp;$/;"	m	struct:mosquitto_message_all
+tls_cafile	mosquitto_internal.h	/^	char *tls_cafile;$/;"	m	struct:mosquitto
+tls_capath	mosquitto_internal.h	/^	char *tls_capath;$/;"	m	struct:mosquitto
+tls_cert_reqs	mosquitto_internal.h	/^	int tls_cert_reqs;$/;"	m	struct:mosquitto
+tls_certfile	mosquitto_internal.h	/^	char *tls_certfile;$/;"	m	struct:mosquitto
+tls_ciphers	mosquitto_internal.h	/^	char *tls_ciphers;$/;"	m	struct:mosquitto
+tls_ex_index_mosq	net_mosq.c	/^int tls_ex_index_mosq = -1;$/;"	v
+tls_insecure	mosquitto_internal.h	/^	bool tls_insecure;$/;"	m	struct:mosquitto
+tls_insecure_set	cpp/mosquittopp.cpp	/^int mosquittopp::tls_insecure_set(bool value)$/;"	f	class:mosqpp::mosquittopp
+tls_keyfile	mosquitto_internal.h	/^	char *tls_keyfile;$/;"	m	struct:mosquitto
+tls_opts_set	cpp/mosquittopp.cpp	/^int mosquittopp::tls_opts_set(int cert_reqs, const char *tls_version, const char *ciphers)$/;"	f	class:mosqpp::mosquittopp
+tls_psk	mosquitto_internal.h	/^	char *tls_psk;$/;"	m	struct:mosquitto
+tls_psk_identity	mosquitto_internal.h	/^	char *tls_psk_identity;$/;"	m	struct:mosquitto
+tls_psk_set	cpp/mosquittopp.cpp	/^int mosquittopp::tls_psk_set(const char *psk, const char *identity, const char *ciphers)$/;"	f	class:mosqpp::mosquittopp
+tls_pw_callback	mosquitto_internal.h	/^	int (*tls_pw_callback)(char *buf, int size, int rwflag, void *userdata);$/;"	m	struct:mosquitto
+tls_set	cpp/mosquittopp.cpp	/^int mosquittopp::tls_set(const char *cafile, const char *capath, const char *certfile, const char *keyfile, int (*pw_callback)(char *buf, int size, int rwflag, void *userdata))$/;"	f	class:mosqpp::mosquittopp
+tls_version	mosquitto_internal.h	/^	char *tls_version;$/;"	m	struct:mosquitto
+to_process	mosquitto_internal.h	/^	uint32_t to_process;$/;"	m	struct:_mosquitto_packet
+topic	mosquitto.h	/^	char *topic;$/;"	m	struct:mosquitto_message
+topic_matches_sub	cpp/mosquittopp.cpp	/^int topic_matches_sub(const char *sub, const char *topic, bool *result)$/;"	f	namespace:mosqpp
+true	mosquitto.h	37;"	d
+uint16_t	mosquitto_internal.h	/^		typedef unsigned short uint16_t;$/;"	t
+uint32_t	mosquitto_internal.h	/^		typedef unsigned int uint32_t;$/;"	t
+uint64_t	mosquitto_internal.h	/^		typedef unsigned long long uint64_t;$/;"	t
+uint8_t	mosquitto_internal.h	/^		typedef unsigned char uint8_t;$/;"	t
+unsubscribe	cpp/mosquittopp.cpp	/^int mosquittopp::unsubscribe(int *mid, const char *sub)$/;"	f	class:mosqpp::mosquittopp
+user_data_set	cpp/mosquittopp.cpp	/^void mosquittopp::user_data_set(void *userdata)$/;"	f	class:mosqpp::mosquittopp
+userdata	mosquitto_internal.h	/^	void *userdata;$/;"	m	struct:mosquitto
+username	mosquitto_internal.h	/^	char *username;$/;"	m	struct:mosquitto
+username_pw_set	cpp/mosquittopp.cpp	/^int mosquittopp::username_pw_set(const char *username, const char *password)$/;"	f	class:mosqpp::mosquittopp
+want_connect	mosquitto_internal.h	/^	bool want_connect;$/;"	m	struct:mosquitto
+want_write	cpp/mosquittopp.cpp	/^bool mosquittopp::want_write()$/;"	f	class:mosqpp::mosquittopp
+want_write	mosquitto_internal.h	/^	bool want_write;$/;"	m	struct:mosquitto
+will	mosquitto_internal.h	/^	struct mosquitto_message *will;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::mosquitto_message
+will_clear	cpp/mosquittopp.cpp	/^int mosquittopp::will_clear()$/;"	f	class:mosqpp::mosquittopp
+will_set	cpp/mosquittopp.cpp	/^int mosquittopp::will_set(const char *topic, int payloadlen, const void *payload, int qos, bool retain)$/;"	f	class:mosqpp::mosquittopp
+ws_context	mosquitto_internal.h	/^	struct libwebsocket_context *ws_context;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::libwebsocket_context
+wsi	mosquitto_internal.h	/^	struct libwebsocket *wsi;$/;"	m	struct:mosquitto	typeref:struct:mosquitto::libwebsocket
+~mosquittopp	cpp/mosquittopp.cpp	/^mosquittopp::~mosquittopp()$/;"	f	class:mosqpp::mosquittopp

@@ -1,0 +1,1301 @@
+/**********************************************************
+ * json字符串相关的功能实现。
+ * 主要json字符串的解析、格式化的实现。
+ * 本部分实现依赖于库cJSON(工程中改为cjson.c)。
+ * */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "json_common.h"
+#include "def.h"
+#include "debug_log.h"
+
+// demo
+#if 0
+
+{
+	"hello":	"hello world",
+	"number":	10010,
+	"bool":		true,
+	"subobj":	{
+		"subjsonobj":	"a sub json string"
+	}
+}
+
+// @协议格式示例
+{
+	"req_type":			1,		// @增、删、该、查; 详细参见"def.h"的定义
+	"db_name":			1,		// @见结构 db_name_t
+	"tab_name":			3,		// @［tab_vendor_t］、［tab_product_t］...; 详细参见"def.h"的定义
+	"req_data": {
+		"product_key":	"2222",
+		"device_code":	"0001",
+		"device_type":	"1",
+		"device_module":"Linux",
+		"version":		"0.0.1"
+	}
+}
+
+SQL: INSERT INTO device(product_key, device_code, ...) value("", "", ...);
+	 INSERT INTO [TAB]("[FIELD1]", ...) VALUE("[VALUE1]", ...);
+
+	 DELETE FROM device WHERE device_id = 1;
+	 DELETE FROM [TAB] WHERE [FIELD1] = [VALUE];
+
+	 UPDATE device SET device_name = "test002" WHERE device_id = 3;
+	 UPDATE [TAB] SET [FIELD] = [VALUE] WHERE [FIELD] = [VALUE];
+
+	 SELECT device_name FROM device WHERE device_id = 3;
+
+#endif
+
+/*
+ * @功能		协议内容解析；
+ * 			根据web端接收的有效数据输入，对数据按写一个是进行解析。
+ * @参数		buf_in: 入参；传入的数据buf，json格式数据串；
+ * 			len_in: 入参；传入数据buf的长度；
+ * 			buf_out: 入参；处理后的数据存放buf
+ * @返回值	函数执行状态
+ * */
+int json_parse_protocol(char *buf_in, int len_in, char *buf_out)
+{
+	// TODO @日志接口嘞？
+	char buf_log[200] = { 0 };
+	sprintf(buf_log, "[%s: %d: %s]\n", __FILE__, __LINE__, __FUNCTION__);
+	print(INFO, buf_log);
+
+	// @入参检测
+	if (NULL == buf_in || 0 >= len_in)
+	{
+		sprintf(buf_log, "[%s: %d: %s] [pram error.].\n", __FILE__, __LINE__, __FUNCTION__);
+		print(ERR, buf_log);
+		return FALSE;
+	}
+
+	/************************************************************************
+	 * 变量声明定义。
+	 * */
+	// @数据处理: 按结构体定义格式化输出字符串；
+	// @buf大小按后续实际数据测试作调整。
+	uint8 buf_tmp[BUF_TEXT * 2] = { 0 };
+	db_info_t *db_info = (db_info_t *)buf_tmp;
+
+	/************************************************************************
+	 * 数据处理。
+	 * */
+    cJSON * root = cJSON_Parse(buf_in);
+    if(NULL == root)
+    {
+        // @解析出错，返回
+		sprintf(buf_log, "[%s: %d: %s] [Json parse error.].\n", __FILE__, __LINE__, __FUNCTION__);
+		print(ERR, buf_log);
+        return FALSE;
+    }
+
+    // @解析获请求类型
+    cJSON * sub = cJSON_GetObjectItem(root, "req_type");
+    if(NULL == sub)
+    {
+    	// @解析出错，返回
+		sprintf(buf_log, "[%s: %d: %s] [Get 'req_type' ERR.].\n", __FILE__, __LINE__, __FUNCTION__);
+		print(ERR, buf_log);
+        return FALSE;
+    }
+	sprintf(buf_log, "[%s: %d: %s] ['req_type' = %d.].\n", __FILE__, __LINE__, __FUNCTION__, sub->valueint);
+	print(INFO, buf_log);
+
+	// @类型错误
+	if (sub->valueint >= REQ_TYPE_NUM)
+	{
+		return FALSE;
+	}
+	db_info->req_type = sub->valueint;
+	sub = NULL;
+
+    // @解析获取数据库名称
+    sub = cJSON_GetObjectItem(root, "db_name");
+    if(NULL == sub)
+    {
+    	// @解析出错，返回
+		sprintf(buf_log, "[%s: %d: %s] [Get 'db_name' ERR.].\n", __FILE__, __LINE__, __FUNCTION__);
+		print(ERR, buf_log);
+        return FALSE;
+    }
+	sprintf(buf_log, "[%s: %d: %s] ['db_name' = %d.].\n", __FILE__, __LINE__, __FUNCTION__, sub->valueint);
+	print(INFO, buf_log);
+
+	// @类型错误
+	if (sub->valueint >= MAX_DB_NUM)
+	{
+		return FALSE;
+	}
+	db_info->db_name = sub->valueint;
+	sub = NULL;
+	// TODO @后续此处添加数据库名称的验证
+	/***********************
+	 *
+	 * */
+
+    // @解析获取表名称
+    sub = cJSON_GetObjectItem(root, "tab_name");
+    if(NULL == sub)
+    {
+    	// @解析出错，返回
+		sprintf(buf_log, "[%s: %d: %s] [Get 'tab_name' ERR.].\n", __FILE__, __LINE__, __FUNCTION__);
+		print(ERR, buf_log);
+        return FALSE;
+    }
+
+	sprintf(buf_log, "[%s: %d: %s] ['tab_name' = %d.].\n", __FILE__, __LINE__, __FUNCTION__, sub->valueint);
+	print(INFO, buf_log);
+
+	// @类型错误；数据范围 ［1， MAX_TAB_NUM］
+	if (sub->valueint >= MAX_TAB_NUM)
+	{
+		return FALSE;
+	}
+	db_info->tab_name = sub->valueint;
+	sub = NULL;
+
+	// @整合协议格式数据
+	// @整合 req_type
+	sprintf(buf_tmp, "%s", db_tab[db_info->tab_name]);
+
+
+	// @解析数据
+	// @协议结构中，只有数据部分的内容是不确定的；
+	// @有可能数据是某个表中非自增的所有字段；也有可能是某个表中的一个字段；
+	// @那么，如何解析才够快速解析数据部分中的内容？
+    sub = cJSON_GetObjectItem(root, "tab_name");
+    if(NULL == sub)
+    {
+    	// @解析出错，返回
+		sprintf(buf_log, "[%s: %d: %s] [Get 'tab_name' ERR.].\n", __FILE__, __LINE__, __FUNCTION__);
+		print(ERR, buf_log);
+        return FALSE;
+    }
+
+    // @声明定义SQL语句存放空间
+	uint8 buf_field[BUF_CHAR] = { 0 };
+	uint8 buf_value[BUF_TEXT * 2] = { 0 };		// @主要是考虑到 description 占空间可能过大
+
+    // @解析完协议头之后，对于数据部分，不确定其数据内容的时候，可以按照类型来解析出项目和对应数据，然后拼接为SQL语句成分，交给数据库来执行。
+    // @注意数据有效性判定。
+    json_parse_data(sub, buf_field, buf_value);
+
+    // @解析完之后，因为在上述函数中，每次拼接一个obj或者val时，都会在末尾添加一个 ‘，’，所以，在最后的‘,’是不能留的，要除去；
+    // @简单地，可以用一个空格替换，即简述为：替换字符串中最后一个逗号为空格。
+    str_replace(buf_field);
+    str_replace(buf_value);
+
+    // @组合JSON数据为SQL语句
+    json_to_sql(db_info, buf_field, buf_value, buf_out);
+
+
+	return TRUE;
+}
+
+
+/*
+ * @功能		将字符串buf中的最后一次出现的‘,’替换为空格
+ * @参数
+ * @返回值
+ * */
+int str_replace(uint8 *buf)
+{
+	if (buf == NULL)
+		return FALSE;
+
+	uint32 len = strlen(buf);
+	uint32 loop;
+
+	for (loop = len - 1; loop >= 0; loop--)
+	{
+		if (buf[loop] == ',')
+			buf[loop] = ' ';
+		break;
+	}
+	return TRUE;
+}
+
+
+
+/*
+ * @功能		数据内容解析
+ * @参数
+ * @返回值
+ * */
+int json_parse_data(cJSON *sub, uint8 *obj_str, uint8 *val_str)
+{
+	// TODO @日志接口嘞？
+	char buf_log[200] = { 0 };
+	sprintf(buf_log, "[%s: %d: %s]\n", __FILE__, __LINE__, __FUNCTION__);
+	print(INFO, buf_log);
+
+	if (sub == NULL || strlen(obj_str) <= 0 || strlen(val_str) <= 0)
+	{
+		sprintf(buf_log, "[%s: %d: %s] [Parameter err.]\n", __FILE__, __LINE__, __FUNCTION__);
+		print(ERR, buf_log);
+
+		return FALSE;
+	}
+
+	uint8 buf_tmp[20] = { 0 };
+
+    // @解析完协议头之后，对于数据部分，不确定其数据内容的时候，可以按照类型来解析出项目和对应数据，然后拼接为SQL语句成分，交给数据库来执行。
+    // @注意数据有效性判定。
+    switch (sub->type)
+    {
+    	// @cJSON的类型为bool：False
+    	case cJSON_False:
+    	{
+    		sprintf(buf_log, "[%s: %d: %s] [Obj: %s, Val: %d].\n", __FILE__, __LINE__, __FUNCTION__,
+    				sub->string, sub->valueint);
+    		print(INFO, buf_log);
+
+    		sprintf(buf_tmp, "%s, ", sub->string);
+    		strcat(obj_str, buf_tmp);
+    		memset(buf_tmp, 0, sizeof(buf_tmp));
+
+    		sprintf(buf_tmp, "%d, ", sub->valueint);
+    		strcat(val_str, buf_tmp);
+    		memset(buf_tmp, 0, sizeof(buf_tmp));
+
+    		break;
+    	}
+    	// @cJSON的类型为bool：true
+    	case cJSON_True:
+    	{
+    		sprintf(buf_log, "[%s: %d: %s] [Obj: %s, Val: %d].\n", __FILE__, __LINE__, __FUNCTION__,
+    				sub->string, sub->valueint);
+    		print(INFO, buf_log);
+
+    		sprintf(buf_tmp, "%s, ", sub->string);
+    		strcat(obj_str, buf_tmp);
+    		memset(buf_tmp, 0, sizeof(buf_tmp));
+
+    		sprintf(buf_tmp, "%d, ", sub->valueint);
+    		strcat(val_str, buf_tmp);
+    		memset(buf_tmp, 0, sizeof(buf_tmp));
+
+    		break;
+    	}
+    	// @cJSON的类型为：NULL
+    	case cJSON_NULL:
+    	{
+    		sprintf(buf_log, "[%s: %d: %s] [Obj: %s].\n", __FILE__, __LINE__, __FUNCTION__,
+    				sub->string);
+    		print(INFO, buf_log);
+
+    		sprintf(buf_tmp, "%s, ", sub->string);
+    		strcat(obj_str, buf_tmp);
+    		memset(buf_tmp, 0, sizeof(buf_tmp));
+
+    		break;
+    	}
+    	// @cJSON的类型为：number
+    	case cJSON_Number:
+    	{
+    		sprintf(buf_log, "[%s: %d: %s] [Obj: %s, Val: %d].\n", __FILE__, __LINE__, __FUNCTION__,
+    				sub->string, sub->valueint);
+    		print(INFO, buf_log);
+
+    		sprintf(buf_tmp, "%s, ", sub->string);
+    		strcat(obj_str, buf_tmp);
+    		memset(buf_tmp, 0, sizeof(buf_tmp));
+
+    		sprintf(buf_tmp, "%d, ", sub->valueint);
+    		strcat(val_str, buf_tmp);
+    		memset(buf_tmp, 0, sizeof(buf_tmp));
+
+    		break;
+    	}
+    	// @cJSON的类型为：string
+    	case cJSON_String:
+    	{
+    		sprintf(buf_log, "[%s: %d: %s] [Obj: %s, Val: %d].\n", __FILE__, __LINE__, __FUNCTION__,
+    				sub->string, sub->valuestring);
+    		print(INFO, buf_log);
+
+    		sprintf(buf_tmp, "%s, ", sub->string);
+    		strcat(obj_str, buf_tmp);
+    		memset(buf_tmp, 0, sizeof(buf_tmp));
+
+    		sprintf(buf_tmp, "\"%s\", ", sub->valuestring);
+    		strcat(val_str, buf_tmp);
+    		memset(buf_tmp, 0, sizeof(buf_tmp));
+    		break;
+    	}
+    	// @cJSON的类型为：array
+    	case cJSON_Array:
+    	// @cJSON的类型为：object
+    	case cJSON_Object:
+    	{
+    		uint32 json_size = cJSON_GetArraySize(sub);
+    		uint32 obj_cnt;
+    		for (obj_cnt = 0; obj_cnt < json_size; obj_cnt++)
+    		{
+    			cJSON *sub = cJSON_GetArrayItem(sub, obj_cnt);
+    			json_parse_data(sub);
+    		}
+    		break;
+    	}
+    	default:
+    	{
+    		sprintf(buf_log, "[%s: %d: %s] [pram error.].\n", __FILE__, __LINE__, __FUNCTION__);
+    		print(ERR, buf_log);
+
+    		return FALSE;
+    	}
+    }
+
+    return TRUE;
+}
+
+int json_to_sql(db_info_t *db_info, uint8 *str_field, uint8 *str_val, uint8 *buf_out)
+{
+	// TODO @日志接口嘞？
+	char buf_log[200] = { 0 };
+	sprintf(buf_log, "[%s: %d: %s]\n", __FILE__, __LINE__, __FUNCTION__);
+	print(INFO, buf_log);
+
+	if (db_info == NULL || str_field == NULL || str_val == NULL)
+		return FALSE;
+
+	switch (db_info->req_type)
+	{
+		uint8 buf_sql[BUF_TEXT * 2] = { 0 };
+
+		case DB_INSERT:
+		{
+			// @拼组 字段信息
+			// @拼组 insert 的SQL 语句
+			sprintf(buf_sql, "INSERT INTO %s(%s) VALUE(%s)", db_tab[db_info->db_name], str_field, str_val);
+
+			sprintf(buf_log, "[%s: %d: %s] [sql: %s]\n", __FILE__, __LINE__, __FUNCTION__, buf_sql);
+			print(INFO, buf_log);
+
+			break;
+		}
+		case DB_DELETE:
+		{
+			// @拼组 字段信息
+			// @拼组 delete 的SQL 语句
+			sprintf(buf_sql, "DELETE FROM %s WHERE %s", db_tab[db_info->db_name], str_field, str_val);
+
+			sprintf(buf_log, "[%s: %d: %s] [sql: %s]\n", __FILE__, __LINE__, __FUNCTION__, buf_sql);
+			print(INFO, buf_log);
+
+			break;
+		}
+		case DB_ALTER:
+		{
+			break;
+		}
+		case DB_SEARCH:
+		{
+			break;
+		}
+		default:
+		{
+			// @ERROR
+			return FALSE;
+		}
+	}
+	return TRUE;
+}
+
+
+
+
+int json_parse_protocol(char *buf_in, int len_in, char *buf_out)
+{
+	// TODO @日志接口嘞？
+	char buf_log[200] = { 0 };
+	sprintf(buf_log, "[%s: %d: %s]\n", __FILE__, __LINE__, __FUNCTION__);
+	print(INFO, buf_log);
+
+	// @入参检测
+	if (NULL == buf_in || 0 >= len_in)
+	{
+		sprintf(buf_log, "[%s: %d: %s] [pram error.].\n", __FILE__, __LINE__, __FUNCTION__);
+		print(ERR, buf_log);
+		return FALSE;
+	}
+
+	// @数据处理: 按结构体定义格式化输出字符串
+	uint8 buf_tmp[BUF_TEXT] = { 0 };
+	db_info_t *db_info = (db_info_t *)buf_tmp;
+
+	// @表名
+	uint32 tab_name = 0;
+
+	/*************************************************************************/
+    cJSON * root = cJSON_Parse(buf_in);
+    if(NULL == root)
+    {
+        // @解析出错，返回
+		sprintf(buf_log, "[%s: %d: %s] [Json parse error.].\n", __FILE__, __LINE__, __FUNCTION__);
+		print(ERR, buf_log);
+        return FALSE;
+    }
+
+    // @解析获请求类型
+    cJSON * sub = cJSON_GetObjectItem(root, "req_type");
+    if(NULL == sub)
+    {
+    	// @解析出错，返回
+		sprintf(buf_log, "[%s: %d: %s] [Get 'req_type' ERR.].\n", __FILE__, __LINE__, __FUNCTION__);
+		print(ERR, buf_log);
+        return FALSE;
+    }
+	sprintf(buf_log, "[%s: %d: %s] ['req_type' = %d.].\n", __FILE__, __LINE__, __FUNCTION__, sub->valueint);
+	print(INFO, buf_log);
+
+	// @类型错误
+	if (sub->valueint >= 10)
+	{
+		return FALSE;
+	}
+	db_info->req_type = sub->valueint;
+	sub = NULL;
+
+    // @解析获取数据库名称
+    sub = cJSON_GetObjectItem(root, "db_name");
+    if(NULL == sub)
+    {
+    	// @解析出错，返回
+		sprintf(buf_log, "[%s: %d: %s] [Get 'db_name' ERR.].\n", __FILE__, __LINE__, __FUNCTION__);
+		print(ERR, buf_log);
+        return FALSE;
+    }
+	sprintf(buf_log, "[%s: %d: %s] ['db_name' = %d.].\n", __FILE__, __LINE__, __FUNCTION__, sub->valueint);
+	print(INFO, buf_log);
+
+	// @类型错误
+	if (sub->valueint >= 10)
+	{
+		return FALSE;
+	}
+	db_info->db_name = sub->valueint;
+	sub = NULL;
+
+    // @解析获取表名称
+    sub = cJSON_GetObjectItem(root, "tab_name");
+    if(NULL == sub)
+    {
+    	// @解析出错，返回
+		sprintf(buf_log, "[%s: %d: %s] [Get 'tab_name' ERR.].\n", __FILE__, __LINE__, __FUNCTION__);
+		print(ERR, buf_log);
+        return FALSE;
+    }
+	sprintf(buf_log, "[%s: %d: %s] ['tab_name' = %d.].\n", __FILE__, __LINE__, __FUNCTION__, sub->valueint);
+	print(INFO, buf_log);
+
+	// @类型错误；数据范围 ［1， 7］
+	if (sub->valueint >= 7)
+	{
+		return FALSE;
+	}
+	db_info->tab_name = sub->valueint;
+	sub = NULL;
+
+	// @解析数据
+	// @协议结构中，只有数据部分的内容是不确定的；
+	// @有可能数据是某个表中非自增的所有字段；也有可能是某个表中的一个字段；
+	// @那么，如何解析才够快速解析数据部分中的内容？
+    sub = cJSON_GetObjectItem(root, "tab_name");
+    if(NULL == sub)
+    {
+    	// @解析出错，返回
+		sprintf(buf_log, "[%s: %d: %s] [Get 'tab_name' ERR.].\n", __FILE__, __LINE__, __FUNCTION__);
+		print(ERR, buf_log);
+        return FALSE;
+    }
+
+    // @计数字段的有效性
+    uint32 field_valid[6] = { 0 };
+
+	switch (db_info->tab_name)
+	{
+		// @输入数据为 vendor表字段数据
+		case TAB_VENDOR:
+		{
+			// @vendor表字段解析
+			// @存放表名
+			tab_name = TAB_VENDOR;
+
+			// @字段 description 需要在web前端页面添加字数限制。
+			// @TODO 此处的buf大小需要根据web前端的限制输入长度作调整。
+			// @分配堆空间
+			tab_vendor_t *tab_vendor = (tab_vendor_t *)malloc(BUF_CHAR * 2 + BUF_TEXT);
+
+			// @解析 vendor_name 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_vendor[0]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['vendor_name' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[0] = 1;
+
+				// @拷贝解析数据内容
+				strcpy(tab_vendor->vendor_name, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['vendor_name' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_vendor->vendor_name);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 vendor_key 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_vendor[1]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['vendor_key' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[1] = 1;
+
+				strcpy(tab_vendor->vendor_key, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['vendor_name' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_vendor->vendor_key);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 vendor_description 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_vendor[2]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['vendor_description' is nul].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[2] = 1;
+
+				strcpy(tab_vendor->vendor_description, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['vendor_name' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_vendor->vendor_description);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @整合数据
+			db_info->data = tab_vendor;
+
+			// @整理请求数据为SQL语句
+			//json_parse_data(db_info, 1, db_tab[tab_name], field_valid, buf_out);
+			json_parse_data(db_info, tab_vendor, field_valid, buf_out);
+
+			break;
+		}
+		// @输入数据为 server表字段数据
+		case TAB_SERVER:
+		{
+			// @存放表名
+			tab_name = TAB_SERVER;
+
+			tab_server_t *tab_server = (tab_server_t *)malloc(BUF_CHAR * 3 + BUF_TEXT);
+
+			// @解析 server_name 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_server[0]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['server_name' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[0] = 1;
+
+				strcpy(tab_server->server_name, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['server_name' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_server->server_name);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 server_key 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_server[1]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['server_key' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[1] = 1;
+
+				strcpy(tab_server->server_key, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['server_key' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_server->server_key);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 server_config 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_server[2]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['server_config' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[2] = 1;
+
+				strcpy(tab_server->server_config, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['server_config' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_server->server_config);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 server_description 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_server[3]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['server_description' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[3] = 1;
+
+				strcpy(tab_server->server_description, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['server_description' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_server->server_description);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @整合数据
+			db_info->data = tab_server;
+
+			break;
+		}
+		// @输入数据为 device 表字段数据
+		case TAB_DEVICE:
+		{
+			// @存放表名
+			tab_name = TAB_DEVICE;
+
+			tab_device_t *tab_device = (tab_device_t *)malloc(BUF_CHAR * 4 + BUF_TEXT + BUF_SHORT);
+
+			// @解析 device_identifier 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_device[0]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['device_identifier' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[0] = 1;
+
+				strcpy(tab_device->device_identifier, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['device_identifier' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_device->device_identifier);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 device_secret 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_device[1]);
+			if (NULL == sub_tab)db_info
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['device_secret' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[1] = 1;
+
+				strcpy(tab_device->device_secret, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['device_secret' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_device->device_secret);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 device_key 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_device[2]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['device_key' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[2] = 1;
+
+				strcpy(tab_device->device_key, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['device_key' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_device->device_key);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 device_name 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_device[3]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['device_name' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[3] = 1;
+
+				strcpy(tab_device->device_name, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['device_name' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_device->device_name);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 device_version 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_device[4]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['device_version' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[4] = 1;
+
+				strcpy(tab_device->device_version, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['device_version' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_device->device_version);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 device_description 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_device[5]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['device_description' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[5] = 1;
+
+				strcpy(tab_device->device_description, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['device_description' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_device->device_description);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @整合数据
+			db_info->data = tab_device;
+
+			break;
+		}
+		// @输入数据为 application 表字段数据
+		case TAB_APP:
+		{
+			// @存放表名
+			tab_name = TAB_APP;
+
+			tab_app_t *tab_app = (tab_app_t *)malloc(BUF_CHAR * 5 + BUF_TEXT);
+
+			// @解析 app_name 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_app[0]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['app_name' is nul].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[0] = 1;
+
+				strcpy(tab_app->app_name, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['app_name' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_app->app_name);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 app_key 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_app[1]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['app_key' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[1] = 1;
+
+				strcpy(tab_app->app_key, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['app_key' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_app->app_key);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 app_token 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_app[2]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['app_token' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[2] = 1;
+
+				strcpy(tab_app->app_token, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['app_token' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_app->app_token);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 report_url 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_app[3]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['report_url' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[3] = 1;
+
+				strcpy(tab_app->report_url, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['report_url' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_app->report_url);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 app_domain 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_app[4]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['app_domain' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[4] = 1;
+
+				strcpy(tab_app->app_domain, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['app_domain' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_app->app_domain);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 app_description 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_app[5]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['app_description' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[5] = 1;
+
+				strcpy(tab_app->app_description, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['app_description' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_app->app_description);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @整合数据
+			db_info->data = tab_app;
+
+			break;
+		}
+		// @输入数据为 user 表字段数据
+		case TAB_USER:
+		{
+			// @存放表名
+			tab_name = TAB_USER;
+
+			tab_user_t *tab_user = (tab_user_t *)malloc(BUF_SHORT * 2 + BUF_CHAR * 2 + 11);
+
+			// @解析 user_name 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_user[0]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['user_name' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[0] = 1;
+
+				strcpy(tab_user->user_name, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['user_name' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_user->user_name);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 user_password 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_user[1]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['user_password' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[1] = 1;
+
+				strcpy(tab_user->user_password, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['user_password' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_user->user_password);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 user_access_level 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_user[2]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['user_access_level' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[2] = 1;
+
+				strcpy(tab_user->user_access_level, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['user_access_level' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_user->user_access_level);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 email_addr 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_user[3]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['email_addr' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[3] = 1;
+
+				strcpy(tab_user->email_addr, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['email_addr' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_user->email_addr);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 phone_number 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_user[4]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['phone_number' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[4] = 1;
+
+				strcpy(tab_user->phone_number, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['phone_number' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_user->phone_number);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @整合数据
+			db_info->data = tab_user;
+
+			break;
+		}
+		// @输入数据为 dev_static 表字段数据
+		case TAB_DEV_STATUS:
+		{
+			// @存放表名
+			tab_name = TAB_DEV_STATUS;
+
+			tab_dev_status_t *tab_dev_status = (tab_dev_status_t *)malloc(sizeof(bool));
+
+			// @解析 dev_status 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_status);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['dev_status' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[0] = 1;
+
+				strcpy(tab_dev_status->dev_status, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['dev_status' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_dev_status->dev_status);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @整合数据
+			db_info->data = tab_dev_status;
+
+			break;
+		}
+		// @输入数据为 sub 表字段数据
+		case TAB_SUB:
+		{
+			// @存放表名
+			tab_name = TAB_SUB;
+
+			tab_sub_t *tab_sub = (tab_sub_t *)malloc(BUF_CHAR * 2);
+
+			// @解析 sub_event 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_sub[0]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['sub_event' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[0] = 1;
+
+				strcpy(tab_sub->sub_event, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['sub_event' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_sub->sub_event);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @解析 sub_action 字段
+			cJSON *sub_tab = cJSON_GetObjectItem(sub, field_sub[0]);
+			if (NULL == sub_tab)
+			{
+				sprintf(buf_log, "[%s: %d: %s] ['sub_action' is null].\n", __FILE__, __LINE__, __FUNCTION__);
+				print(INFO, buf_log);
+			}
+			else
+			{
+				// @置有效
+				field_valid[1] = 1;
+
+				strcpy(tab_sub->sub_action, sub_tab->valuestring);
+
+				sprintf(buf_log, "[%s: %d: %s] ['sub_action' is %s].\n", __FILE__,
+						__LINE__, __FUNCTION__, tab_sub->sub_action);
+				print(INFO, buf_log);
+			}
+			sub_tab = NULL;
+
+			// @整合数据
+			db_info->data = tab_sub;
+
+			break;
+		}
+		default:
+		{
+			// @ ERROR
+			sprintf(buf_log, "[%s: %d: %s] [Unrecognized data types.]\n", __FILE__,
+					__LINE__, __FUNCTION__);
+			print(INFO, buf_log);
+
+			return FALSE;
+		}
+	}
+
+	return TRUE;
+}
+
+/*
+ * @功能		数据内容解析
+ * 			根据解析的协议格式数据，将数据整合为SQL语句。
+ * 			此处为了减少程序中的逻辑处理，将web端传过来的数据经过初步判断
+ * 			出里后传给数据库，由数据库的约束来在对传入数据的逻辑行进行判断。
+ * @参数		buf_in：协议格式数据
+ * 			len_in：输入数据长度
+ * 			buf_out：输出的SQL语句buf
+ * @返回值	函数执行状态
+ * */
+int json_parse_data(db_info_t *db_info, void *db_tab, uint32 field_valid, uint8 *buf_out)
+{
+	switch (db_info->req_type)
+	{
+		uint8 buf_sql[BUF_TEXT * 2] = { 0 };
+		uint8 buf_tmp[BUF_TEXT] = { 0 };
+
+		case DB_INSERT:
+		{
+			sprintf(buf_out, "INSERT INTO %s(", db_tab[db_info->tab_name]);
+			uint32 tab_cnt;
+			for(tab_cnt = 0; field_valid[tab_cnt] != 0 && tab_cnt < 6; tab_cnt++)
+			{
+				sprintf(buf_tmp, "\"%s\"", )
+			}
+
+			break;
+		}
+		case DB_DELETE:
+		{
+			break;
+		}
+		case DB_ALTER:
+		{
+			break;
+		}
+		case DB_SEARCH:
+		{
+			break;
+		}
+		default:
+		{
+			// @ERROR
+			return FALSE;
+		}
+	}
+	return TRUE;
+}
+
+void printntab(int iCnt)
+{
+    int i = 0;
+    for(i = 0; i < iCnt; i++)
+    {
+        printf("\t");
+    }
+}
+
+int parseJson(cJSON * pJson, int iCnt)
+{
+    if(NULL == pJson)
+    {
+        return -1;
+    }
+    switch(pJson->type)
+    {
+        case cJSON_False :
+            {
+                printf("%s : %d\n", pJson->string, pJson->valueint);
+            }
+            break;
+        case cJSON_True :
+            {
+                printf("%s : %d\n", pJson->string, pJson->valueint);
+            }
+            break;
+        case cJSON_NULL :
+            {
+                printf("%s : NULL\n", pJson->string);
+            }
+            break;
+        case cJSON_Number :
+            {
+                printf("%s : %d | %lf\n", pJson->string, pJson->valueint, pJson->valuedouble);
+            }
+            break;
+        case cJSON_String :
+            {
+                printf("%s : %s\n", pJson->string, pJson->valuestring);
+            }
+            break;
+        case cJSON_Array  :
+        case cJSON_Object :
+            {
+                int iSize = cJSON_GetArraySize(pJson);
+                int i = 0;
+                iCnt++;
+                printf("%s : {\n", NULL == pJson->string ? "" : pJson->string);
+                for(i = 0; i < iSize; i++)
+                {
+                    printntab(iCnt);
+                    cJSON * pSub = cJSON_GetArrayItem(pJson, i);
+                    parseJson(pSub, iCnt);
+                }
+                printntab(iCnt);
+                printf("}\n");
+            }
+            break;
+        default :
+            return -1;
+            break;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
